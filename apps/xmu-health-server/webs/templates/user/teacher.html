@@ -1,0 +1,143 @@
+{% extends "common/layout_main.html" %}
+{% block content %}
+    <div class="row  border-bottom">
+        <div class="col-lg-12">
+            <div class="tab_title">
+                <ul class="nav nav-pills">
+                    <li>
+                        <a href="{{ buildUrl('/user/student') }}">学生</a>
+                    </li>
+                    <li class="current">
+                        <a href="{{ buildUrl('/user/teacher') }}">教职工</a>
+                    </li>
+                    <li>
+                        <a href="{{ buildUrl('/user/staff') }}">校内员工</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <form class="form-inline wrap_search">
+                <div class="row  m-t p-w-m">
+                    <div class="form-group">
+                        <input type="text" placeholder="请输入单位" class="form-control" id="id_dept">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="请输入学工号" class="form-control" id="id_no">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="请输入姓名" class="form-control" id="id_name">
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                        <span class="input-group-btn">
+                            <button type="button" class="btn  btn-primary search">
+                                <i class="fa fa-search"></i>搜索
+                            </button>
+                        </span>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            </form>
+            <div style="height:420px;overflow: auto;">
+                <table class="table table-striped table-hover table-responsive m-t" id="teacher_table">
+                    <thead>
+                    <tr>
+                        <th style="width:20%">序号</th>
+                        <th style="width:20%">单位</th>
+                        <th style="width:20%">学工号</th>
+                        <th style="width:20%">姓名</th>
+                        <th style="width:20%">详情</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+            <!--显示分页信息 -->
+            <div class="row" id='pagination'>
+                <div class="col-lg-12">
+                    <span class="pagination_count"></span>
+                    <ul class="pagination pagination-lg pull-right">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--用户详情模态框 -->
+    <div class="modal fade" id="DetailModal" role="dialog">
+        <div class="modal-dialog" role="document" style="width: 50%;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">详情</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col-lg-2 text-center">
+                            <img class="img-circle circle-border"
+                                 src="{{ buildStaticUrl('/images/common/teacher.png') }}"
+                                 width="100px" height="100px">
+                        </div>
+                        <div class="col-lg-10">
+                            <p class="m-t">角色：教职工</p>
+                            <p id="id_modal_dept"></p>
+                            <p id="id_modal_no"></p>
+                            <p id="id_modal_name"></p>
+                        </div>
+                    </div>
+
+                    <div class="panel-body">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab-1">
+                                <div style="height:420px;overflow: auto;">
+                                    <table class="table table-striped table-hover table-responsive m-t"
+                                           id="teacher_track_table">
+                                        <thead>
+                                        <tr>
+                                            <th style="width:25%">序号</th>
+                                            <th style="width:25%">场所</th>
+                                            <th style="width:25%">类型</th>
+                                            <th style="width:25%">时间</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <!--显示分页信息 -->
+                                <div class="row" id='pagination_tracklist'>
+                                    <div class="col-lg-12">
+                                        <span class="pagination_count"></span>
+                                        <ul class="pagination pagination-lg pull-right">
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="modal-footer"> -->
+                <!-- <button class="btn btn-w-m btn-outline btn-primary" id="saveVenue">保存</button> -->
+                <!-- <button class="btn btn-w-m btn-outline btn-default" data-dismiss="modal">关闭</button> -->
+                <!-- </div> -->
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block js %}
+    <script src="{{ buildStaticUrl('/js/user/teacher.js') }}"></script>
+{% endblock %}

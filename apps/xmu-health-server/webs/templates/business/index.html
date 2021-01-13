@@ -1,0 +1,156 @@
+{% extends "common/layout_main.html" %}
+{% block content %}
+
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>打开次数 <small>打开小程序的总次数，用户从打开小程序到主动关闭或超时退出小程序的过程，计为一次</small></h5>
+                    </div>
+                    <div class="ibox-content" style="position: relative">
+                        <div id="open-count-chart" style="width:100%;height:250px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>访问人数 <small>访问小程序页面的总用户数，同一用户多次访问不重复计</small></h5>
+                    </div>
+                    <div class="ibox-content">
+                        <div id="visit-people-count-chart" style="width:100%;height:250px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>人均停留时长 <small>平均每个用户停留在小程序页面的总时长（秒），即总停留时长/访问人数
+                        </small></h5>
+                    </div>
+                    <div class="ibox-content">
+                        <div id="people-stay-time-chart" style="width:100%;height:250px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>次均停留时长 <small>平均每次打开小程序停留在小程序页面的总时长（秒），即总停留时长/打开次数</small></h5>
+                    </div>
+                    <div class="ibox-content">
+                        <div id="count-stay-time-chart" style="width:100%;height:250px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+<!--         <div class="row">
+            <div class="col-lg-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>Simple one line Example </h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li>
+                                    <a href="#">Config option 1</a>
+                                </li>
+                                <li>
+                                    <a href="#">Config option 2</a>
+                                </li>
+                            </ul>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div id="morris-one-line-chart"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>Simple one line Example </h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li>
+                                    <a href="#">Config option 1</a>
+                                </li>
+                                <li>
+                                    <a href="#">Config option 2</a>
+                                </li>
+                            </ul>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div id="morris-one-line-chart2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>Simple one line Example </h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li>
+                                    <a href="#">Config option 1</a>
+                                </li>
+                                <li>
+                                    <a href="#">Config option 2</a>
+                                </li>
+                            </ul>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div id="morris-one-line-chart"></div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </div>
+
+
+{% endblock %}
+{% block js %}
+    <script src="{{ buildStaticUrl('/js/business/index.js') }}"></script>
+
+    {% if config.CDN==True %}
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/4.7.0/echarts-en.common.min.js"></script>
+    {% else %}
+    <script src="{{ buildStaticUrl('/plugins/echarts.min.js') }}"></script>
+    {% endif %}
+
+{% endblock %}
