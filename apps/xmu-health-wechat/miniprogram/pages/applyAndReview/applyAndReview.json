@@ -1,0 +1,10 @@
+{
+  "usingComponents":{
+    "apply": "apply/apply",
+    "check": "check/check",
+    "submit": "submit/s",
+    "myApply": "myApply/myApply",
+    "myApproval":"myApproval/myApproval"
+  },
+  "enablePullDownRefresh": true
+}

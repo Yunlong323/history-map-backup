@@ -1,0 +1,56 @@
+.profile{
+  background: #fff;
+  height: 300rpx;
+  text-align: center;
+  position: relative;
+  width: 100%;
+}
+
+.profile-img{
+  width: 200rpx;
+  height: 200rpx;
+  display: block;
+  overflow: hidden;
+  /* border-radius: 50%; */
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 60rpx);
+}
+
+.profile-name{
+  font-size: 36rpx;
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 270rpx);
+}
+
+
+.about{
+  background: #fff;
+  position: absolute;
+  left: 3%;
+  right: 3%;
+}
+
+.about-title{
+  margin-top: 20rpx;
+  font-size: 35rpx;
+  font-weight: bold;
+
+  /* 居中 */
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+}
+
+.about-info{
+  margin-top: 25rpx;
+  font-size: 28rpx;
+}
+
+.about-linkman-br{
+  /* margin-bottom: 30rpx; */
+  font-size: 28rpx;
+}
