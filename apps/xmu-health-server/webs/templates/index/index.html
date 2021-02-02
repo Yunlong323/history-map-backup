@@ -6,13 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>厦大通行码</title>
 
-    {% if config.CDN==True %}
+    
     <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-    {% else %}
-    <link href="{{ buildStaticUrl('/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ buildStaticUrl('/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
-    {% endif %}
+
 
     <link href="{{ buildStaticUrl('/css/style.css') }}" rel="stylesheet">
 
@@ -56,31 +53,25 @@
                             class="nav-label">场所管理</span></a>
                 </li>
 
-                {% if current_user.super==1 %}
                 <li class="user">
                     <a href="{{ buildUrl('/user/student') }}"><i class="fa fa-group fa-lg"></i> <span
                             class="nav-label">用户管理</span></a>
                 </li>
-                {% endif %}
 
                 <li class="track">
                     <a href="{{ buildUrl('/track/index') }}"><i class="fa fa-search fa-lg"></i> <span
                             class="nav-label">轨迹查询</span></a>
                 </li>
 
-                {% if current_user.super==1 %}
                 <li class="trace">
                     <a href="{{ buildUrl('/trace/index') }}"><i class="fa fa-recycle fa-lg"></i> <span
                             class="nav-label">溯源管理</span></a>
                 </li>
-                {% endif %}
 
-                {% if current_user.super==1 %}
                     <li class="business">
                         <a href="{{ buildUrl('/business/index') }}"><i class="fa fa-line-chart fa-lg"></i> <span
                                 class="nav-label">运营统计</span></a>
                     </li>
-                {% endif %}
 
             </ul>
         </div>
@@ -117,15 +108,10 @@
 </div>
 
 
-{% if config.CDN==True %}
+
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
 <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="https://cdn.bootcdn.net/ajax/libs/echarts/4.7.0/echarts-en.common.min.js"></script>
-{% else %}
-<script src="{{ buildStaticUrl('/plugins/jquery-2.1.1.js') }}"></script>
-<script src="{{ buildStaticUrl('/bootstrap/bootstrap.min.js') }}"></script>
-<script src="{{ buildStaticUrl('/plugins/echarts.min.js') }}"></script>
-{% endif %}
 
 
 <script src="{{ buildStaticUrl('/plugins/layer/layer.js') }}"></script>

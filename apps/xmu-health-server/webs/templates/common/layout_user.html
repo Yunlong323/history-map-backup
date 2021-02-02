@@ -7,37 +7,25 @@
     <title>厦大通行码</title>
     <!-- Le styles -->
 
-    {% if config.CDN==True %}
     <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-    {% else %}
-    <link href="{{ buildStaticUrl('/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ buildStaticUrl('/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
-    {% endif %}
-
+  
     <link href="{{ buildStaticUrl('/css/style.css') }}" rel="stylesheet">
 
 
-    {%block css %}{% endblock %}
 </head>
 
 <body class="gray-bg">
-{% block content %}{% endblock %}
 
 
 
-{% if config.CDN==True %}
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
 <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
-{% else %}
-<script src="{{ buildStaticUrl('/plugins/jquery-2.1.1.js') }}"></script>
-<script src="{{ buildStaticUrl('/bootstrap/bootstrap.min.js') }}"></script>
-{% endif %}
+
 
 <script src="{{ buildStaticUrl('/plugins/layer/layer.js') }}"></script>
 <script src="{{ buildStaticUrl('/js/common.js') }}"></script>
 
-{%block js %}{% endblock %}
 
 </body>
 </html>

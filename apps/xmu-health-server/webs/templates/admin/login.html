@@ -1,19 +1,46 @@
-{% extends "common/layout_user.html" %}
-{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>厦大通行码</title>
+    <!-- Le styles -->
 
-    <div class="middle-box text-center loginscreen animated fadeInDown">
-        <div>
-            <h2>厦大通行码</h2>
-            <h3 style="color:red">{{msg}}</h3>
-            <img type="button" id="login" src="{{ buildStaticUrl('/images/common/login.png') }}" class="btn full-width do-login"></img>
-        </div>
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+    <link href="{{ buildStaticUrl('/css/style.css') }}" rel="stylesheet">
+
+
+    
+</head>
+
+<body class="gray-bg">
+<div class="middle-box text-center loginscreen animated fadeInDown">
+    <div>
+        <h2>厦大通行码</h2>
+        <h3 style="color:red">{{msg}}</h3>
+        <img type="button" id="login" src="{{ buildStaticUrl('/images/common/login.png') }}" class="btn full-width do-login"></img>
     </div>
+</div>
 
-{% endblock %}
-{% block js%}
+
+
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+<script src="{{ buildStaticUrl('/plugins/layer/layer.js') }}"></script>
+<script src="{{ buildStaticUrl('/js/common.js') }}"></script>
+
+
 <script>
-$(".do-login").click(function () {
-    window.location.href = "https://ids.xmu.edu.cn/authserver/login?service=https://passport.xmu.edu.cn/admin/callback"});
+    $(".do-login").click(function () {
+        window.location.href = "https://ids.xmu.edu.cn/authserver/login?service=https://passport.xmu.edu.cn/admin/callback"});
 </script>
-{% endblock %}
 
+</body>
+</html>
