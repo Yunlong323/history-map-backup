@@ -1,8 +1,4 @@
-<<<<<<< HEAD
  #!/usr/bin/env python
-=======
-#!/usr/bin/env python
->>>>>>> 21adb85b8062d7d1796db3cc9b25822099f247d4
 # -*- coding: utf-8 -*-
 from application import get_db
 from common.models.Admin import Admin
@@ -13,7 +9,6 @@ import string
 
 
 class AdminService:
-<<<<<<< HEAD
     @staticmethod
     def display_sceneries():
         db = get_db()
@@ -29,7 +24,7 @@ class AdminService:
         expression = "match (place:xmu:signable {name:$name}) delete place "
         try:
             db.run(expression,{"name":scenery_name})
-            return 1
+            return "1"
         except Exception as e:
             return None
 
@@ -54,12 +49,10 @@ class AdminService:
         '''+")"  
         try:
             results = db.run(expression,property_dict)
-            return 1 #1代表成功
+            return "1" #1代表成功
 
         except Exception as e:
             return None
-=======
->>>>>>> 21adb85b8062d7d1796db3cc9b25822099f247d4
 
     @staticmethod
     def getByNoWhenLogin(no):
@@ -116,7 +109,6 @@ class AdminService:
                      "SET user.token=$token",
                      {"no": no,"token":token}
         )
-<<<<<<< HEAD
 
     # @staticmethod
     # def create_user_node(label_list,property_dict):
@@ -135,5 +127,3 @@ class AdminService:
     #         db.rollback()
     #         return jsonify(msg=e)
     
-=======
->>>>>>> 21adb85b8062d7d1796db3cc9b25822099f247d4
