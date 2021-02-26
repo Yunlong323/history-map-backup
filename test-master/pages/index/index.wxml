@@ -1,0 +1,5 @@
+<view class="ToMap">
+  <navigator url="/pages/map/map">
+  <button type="primary" >地图导览</button>
+</navigator>
+</view>
