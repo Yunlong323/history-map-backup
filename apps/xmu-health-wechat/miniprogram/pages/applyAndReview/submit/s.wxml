@@ -1,0 +1,39 @@
+<!--pages/applyAndReview/submit/s.wxml-->
+<view class="weui-form-preview__ft">
+    <view class="weui-form-preview__btn weui-form-preview__btn_default">已提交申请</view>
+</view>
+        <view wx:if="{{myApply!=''}}" >
+            <view wx:for="{{myApply}}" wx:for-item="MyAply" wx:key="key" class="weui-form-preview">
+                <view class="weui-form-preview__bd">
+                    <view class="weui-form-preview__item">
+                        <view class="weui-form-preview__label">审批人</view>
+                        <view class="weui-form-preview__value">{{MyAply.reviewer}}</view>
+                    </view>
+                    <view class="weui-form-preview__item"  style="text-align: center;">
+                        <view class="weui-form-preview__label">准入场所</view>
+                        <view class="weui-form-preview__value"  style="text-align: center;">{{MyAply.venue}}</view>
+                    </view>
+                    <view class="weui-form-preview__item">
+                        <view class="weui-form-preview__label">提交时间</view>
+                        <view class="weui-form-preview__value">{{MyAply.applytime}}</view>
+                    </view>
+                    <view class="weui-form-preview__item">
+                        <view class="weui-form-preview__label">准入时间</view>
+                        <view class="weui-form-preview__value" style="text-align:center;font-size: 23rpx;">{{MyAply.starttime}}--{{MyAply.endtime}}</view>
+                    </view>
+                    <view class="weui-form-preview__item">
+                        <view class="weui-form-preview__label">申请原因</view>
+                        <view class="weui-form-preview__value">{{MyAply.reason}}</view>
+                    </view>
+                    <view class="weui-form-preview__item">
+                        <view class="weui-form-preview__label">申请状态</view>
+                        <view wx:if="{{MyAply.state==1}}" class="weui-form-preview__value"  style="color:#228B22">于{{MyAply.approvetime}}通过申请</view>
+                        <view wx:if="{{MyAply.state==0}}" class="weui-form-preview__value" >待审核</view>
+                        <view wx:if="{{MyAply.state==-1}}" class="weui-form-preview__value"  style="color:#B22222">于{{MyAply.approvetime}}拒绝申请</view>
+                    </view>
+                </view>
+            </view>                   
+            <view class="weui-form-preview__ft">
+                <view class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active">__</view>
+            </view>
+        </view>

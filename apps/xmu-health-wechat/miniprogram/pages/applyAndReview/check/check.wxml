@@ -1,0 +1,90 @@
+
+    <view class="weui-navbar">
+        <block wx:for="{{tabs}}" wx:key="*this">
+            <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+                <view class="weui-navbar__title">{{item}}</view>
+            </view>
+        </block>
+    </view>
+
+<scroll-view scroll-y='true' bindscrolltolower='lower' class="list">
+
+    <!-- 待处理 -->
+    <view  hidden="{{activeIndex != 0}}">
+        <view wx:if="{{MyApprove!=''}}" class="">
+            <view  wx:for="{{MyApprove}}" wx:for-item="MyAppr" wx:key="key" class="weui-form-preview">
+                <view  wx:if="{{MyAppr.state==0}}"  class="weui-form-preview__bd">
+                    <view class="weui-form-preview__item" >
+                        <view class="weui-form-preview__label">申请人</view>
+                        <view class="weui-form-preview__value" ><text>{{MyAppr.username}}\n({{MyAppr.userdept}}-{{MyAppr.userno}})</text></view>
+                    </view>
+                    <view class="weui-form-preview__item"  style="text-align: center;">
+                        <view class="weui-form-preview__label">准入场所</view>
+                        <view class="weui-form-preview__value" >{{MyAppr.venue}}</view>
+                        <!-- <view class="weui-form-preview__label" style="font-size:35rpx;color:#000000"><text>XXX的请假申请</text></view> -->
+                    </view>
+                    <view class="weui-form-preview__item">
+                        <view class="weui-form-preview__label">准入时间</view>
+                        <view class="weui-form-preview__value" style="font-size: 23rpx;">{{MyAppr.starttime}}--{{MyAppr.endtime}}</view>
+                    </view>
+                    <view class="weui-form-preview__item">
+                        <view class="weui-form-preview__label">申请时间</view>
+                        <view class="weui-form-preview__value" >{{MyAppr.applytime}}</view>
+                    </view>
+                    <view class="weui-form-preview__item">
+                        <view class="weui-form-preview__label">申请原因</view>
+                        <view class="weui-form-preview__value">{{MyAppr.reason}}</view>
+                    </view>                  
+                    <view class="weui-form-preview__ft">
+                        <view bindtap="check" data-id="{{MyAppr.id}}" data-state="0"  class="weui-form-preview__btn weui-form-preview__btn_default"  style="color:#B22222" hover-class="weui-form-preview__btn_active">拒绝</view>
+                        <view bindtap="check" data-id="{{MyAppr.id}}" data-state="1" class="weui-form-preview__btn weui-form-preview__btn_primary"  style="color:#228B22" hover-class="weui-form-preview__btn_active">同意</view>
+                    </view>
+                </view>
+            </view>
+        </view>               
+        <view class="weui-form-preview__ft">
+            <view class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active">__</view>
+        </view>
+    </view>
+    <!-- 已处理 -->
+    <view  hidden="{{activeIndex != 1}}">
+        <view wx:if="{{MyApprove!=''}}" class="">
+            <view  wx:for="{{MyApprove}}" wx:for-item="MyAppr" wx:key="key" class="weui-form-preview">
+                <view  wx:if="{{MyAppr.state!=0}}"  class="weui-form-preview__bd">
+                    <view class="weui-form-preview__item" >
+                        <view class="weui-form-preview__label">申请人</view>
+                        <view class="weui-form-preview__value" ><text>{{MyAppr.username}}\n({{MyAppr.userdept}}-{{MyAppr.userno}})</text></view>
+                    </view>
+                    <view class="weui-form-preview__item"  >
+                        <view class="weui-form-preview__label ">准入场所</view>
+                        <view class="weui-form-preview__value ">{{MyAppr.venue}}</view>
+                    </view>
+                    <view class="weui-form-preview__item">
+                        <view class="weui-form-preview__label">准入时间</view>
+                        <view class="weui-form-preview__value" style="font-size: 23rpx;">{{MyAppr.starttime}}--{{MyAppr.endtime}}</view>
+                    </view>
+                    <view class="weui-form-preview__item">
+                        <view class="weui-form-preview__label">申请时间</view>
+                        <view class="weui-form-preview__value">{{MyAppr.applytime}}</view>
+                    </view>
+                    <view class="weui-form-preview__item">
+                        <view class="weui-form-preview__label">申请原因</view>
+                        <view class="weui-form-preview__value">{{MyAppr.reason}}</view>
+                    </view>
+                    <view  wx:if="{{MyAppr.state==1}}"   class="weui-form-preview__ft">
+                        <view class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active"  style="color:#228B22">已通过</view>
+                    </view>
+                    <view  wx:if="{{MyAppr.state==-1}}"   class="weui-form-preview__ft">
+                        <view class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active"  style="color:#B22222">已拒绝</view>
+                    </view>
+                </view>
+            </view>
+        </view>          
+        <view class="weui-form-preview__ft">
+            <view class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active">__</view>
+        </view>
+    </view>
+
+
+
+</scroll-view>

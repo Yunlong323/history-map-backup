@@ -1,0 +1,14 @@
+<view class="container">
+	<view class="page-head">
+    <view class="page-head-title">请将此二维码出示给场所管理员{{this.data.userid}}</view>
+    <view class="page-head-line"></view>
+    <view wx:if="{{desc}}" class="page-head-desc">{{desc}}</view>
+  </view>
+	<!-- <template is="head" data="{{title: '请将此二维码出示给场所管理员'}}"/> -->
+	<view class="qrcode-wrap">
+		<view class="qrcode-container">
+			<image class="qrcode-img" src="{{qrcodeURL}}"></image>
+		</view>
+	</view>
+</view>
+<text>{{this.data.userid}}</text>

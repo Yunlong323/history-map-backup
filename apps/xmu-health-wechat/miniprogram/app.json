@@ -1,0 +1,58 @@
+{
+  "pages": [
+    "pages/my/my",
+    "pages/track/track",
+    "pages/userinfo/userinfo",
+    "pages/trend/trend",
+    "pages/about/about",
+    "pages/login/login",
+    "pages/logout/logout",
+    "pages/scan/scan",
+    "pages/applyAndReview/applyAndReview",
+    "pages/scanVenue/scanVenue",
+    "pages/showVenue/showVenue",
+    "pages/showQRCode/showQRCode",
+    "pages/login_staff/login_staff",
+    "pages/applyAndReview/apply/apply",
+    "pages/applyAndReview/check/check"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#16ABFE",
+    "navigationBarTitleText": "厦门大学通行码",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#000",
+    "selectedColor": "#16ABFE",
+    "list": [
+      {
+        "pagePath": "pages/scan/scan",
+        "text": "扫码(Scan)",
+        "iconPath": "images/scan2.png",
+        "selectedIconPath": "images/scan1.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的(My)",
+        "iconPath": "images/my2.png",
+        "selectedIconPath": "images/my1.png"
+      },
+      {
+        "pagePath": "pages/applyAndReview/applyAndReview",
+        "text": "审批(Approval)",
+        "iconPath": "images/check2.png",
+        "selectedIconPath": "images/check1.png"
+      },
+      {
+        "pagePath": "pages/trend/trend",
+        "text": "实况(COVID19)",
+        "iconPath": "images/trend2.png",
+        "selectedIconPath": "images/trend1.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}
