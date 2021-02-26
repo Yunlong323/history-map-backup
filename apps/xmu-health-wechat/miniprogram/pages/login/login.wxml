@@ -1,1 +1,0 @@
-<web-view src="https://ids.xmu.edu.cn/authserver/login?service=https://passport.xmu.edu.cn/wechat/callback" bindmessage='onMessage'></web-view>

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
  #!/usr/bin/env python
-=======
-#!/usr/bin/env python
->>>>>>> 21adb85b8062d7d1796db3cc9b25822099f247d4
 # -*- coding: utf-8 -*-
 from application import get_db
 from common.models.Admin import Admin
@@ -13,7 +9,6 @@ import string
 
 
 class AdminService:
-<<<<<<< HEAD
     @staticmethod
     def display_sceneries():
         db = get_db()
@@ -58,8 +53,6 @@ class AdminService:
 
         except Exception as e:
             return None
-=======
->>>>>>> 21adb85b8062d7d1796db3cc9b25822099f247d4
 
     @staticmethod
     def getByNoWhenLogin(no):
@@ -116,24 +109,5 @@ class AdminService:
                      "SET user.token=$token",
                      {"no": no,"token":token}
         )
-<<<<<<< HEAD
 
-    # @staticmethod
-    # def create_user_node(label_list,property_dict):
-    #     db = get_db()
-    #     # 将label_list中的各个元素变成:分隔的形式 譬如[Admin,Person,xmu]  变成Admin:Person:xmu
-    #     label_string = ":".join(label_list)
 
-    #     expression = "CREATE("+"user:"+label_string+"{id:$id,point:$point,visited:$visited}"+")"  #visited作为一个list传入，打卡地点
-        
-    #     try:
-    #         # results = db.run(expression,{"id":id,"point":point,"visited":visited})
-    #         results = db.run(expression,property_dict)
-    #         return jsonify(msg="用户结点创建成功")
-
-    #     except Exception as e:
-    #         db.rollback()
-    #         return jsonify(msg=e)
-    
-=======
->>>>>>> 21adb85b8062d7d1796db3cc9b25822099f247d4
