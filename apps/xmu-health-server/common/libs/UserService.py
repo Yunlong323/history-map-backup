@@ -10,11 +10,14 @@ from application import app,get_db
 from common.models.User import User
 
 class UserService:
+<<<<<<< HEAD
     @staticmethod 
     def getSceneryNodeInfo(scenery_name): #获取数据库里的景点结点即可，在User.py中对结点进行提取信息
         db = get_db()
         node = db.run("MATCH (node:xmu:signable) WHERE node.name=$scenery_name RETURN node",{"scenery_name":scenery_name} )
         return node  
+=======
+>>>>>>> 21adb85b8062d7d1796db3cc9b25822099f247d4
 
 
     @staticmethod

@@ -55,14 +55,22 @@ APP = {
 }
 
 NEO4J = {
+<<<<<<< HEAD
     "address": "bolt://219.229.80.233:7687",
+=======
+    "address": "bolt://localhost",
+>>>>>>> 21adb85b8062d7d1796db3cc9b25822099f247d4
     "username": "neo4j",
     "password": "Mars@2018"
 }
 
 
 WECHAT={
+<<<<<<< HEAD
     "APPID": "wxc136b7f8bc1430ff",
+=======
+    "APPID": "wxxxxx",
+>>>>>>> 21adb85b8062d7d1796db3cc9b25822099f247d4
     "APPKEY": "d6xxxxxxxxx"
 }
 

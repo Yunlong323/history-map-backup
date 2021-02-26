@@ -67,6 +67,7 @@ def callback():
         response.set_cookie(app.config["AUTH_COOKIE_NAME"], token)
         return response
 
+<<<<<<< HEAD
 @route_admin.route("/post")
 def post_scenery_info(label_list,name,cloud,score,open_time,must_know,intro_text,intro_audio,intro_video):
     status = AdminService.create_scenery_node(label_list,name,cloud,score,open_time,must_know,intro_text,intro_audio,intro_video)
@@ -82,6 +83,9 @@ def display_sceneries():
     all_nodes = AdminService.display_sceneries()
     if not all_nodes:
         return all_nodes
+=======
+
+>>>>>>> 21adb85b8062d7d1796db3cc9b25822099f247d4
 
 @route_admin.route("/logout")
 def logout():

@@ -12,6 +12,7 @@ import datetime
 from application import app
 import json
 
+<<<<<<< HEAD
 @route_wechat.route("/getSceneryInfo",methods=["GET","POST"])
 def getSceneryInfo():
     scenery_name = request.values["scenery_name"]
@@ -26,6 +27,8 @@ def getSceneryInfo():
 
 
 
+=======
+>>>>>>> 21adb85b8062d7d1796db3cc9b25822099f247d4
 
 @route_wechat.route("/addTrack", methods=["GET","POST"])
 def addTrack():
