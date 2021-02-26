@@ -1,0 +1,44 @@
+<!--pages/my/index.wxml-->
+<view class="container">
+  <view class="tapbar">
+      <view class="item-avatar-xs">
+        <image src="../../images/role.png"/>
+        <view style="padding-left:10px">
+          <text>角色</text>
+        </view>
+      </view>
+      <text class="c-g">{{usertype}}</text>
+  </view>
+
+  <view class="tapbar">
+      <view class="item-avatar-xs">
+        <image src="../../images/department.png"/>
+        <view style="padding-left:10px">
+          <text>部门</text>
+        </view>
+      </view>
+      <text class="c-g">{{userorg}}</text>
+  </view>
+
+  <view class="tapbar">
+      <view class="item-avatar-xs">
+        <image src="../../images/no.png"/>
+        <view style="padding-left:10px">
+          <text wx:if="{{usertype != '校内员工'}}">学工号</text>
+          <text wx:if="{{usertype == '校内员工'}}">手机号</text>
+        </view>
+      </view>
+      <text class="c-g">{{userno}}</text>
+  </view>
+  <view class="tapbar">
+      <view class="item-avatar-xs">
+        <image src="../../images/name.png"/>
+        <view style="padding-left:10px">
+          <text>姓名</text>
+        </view>
+      </view>
+      <text class="c-g">{{username}}</text>
+  </view>
+  
+  <button bindtap="logout" class="btn-logout">解除绑定</button>
+</view>

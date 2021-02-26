@@ -1,0 +1,84 @@
+<view class="page">
+    <view style="text-align: center;margin:10rpx"><text >申请审批{{reviewerList[0].name}}{{myApply[0].reviewer}}</text></view>
+    <!-- <view  wx:if="{{myApply!=''}}" class="page__bd"> -->
+    <view  wx:for="{{myApply}}" class="page__bd">
+        <!-- <block wx:for="{{myApply}}" wx:key="key"> -->
+            <view class="weui-form-preview">
+                <view class="weui-form-preview__bd">
+                    <view class="weui-form-preview__item">
+                        <view class="weui-form-preview__label">审核人</view>
+                        <view class="weui-form-preview__value" style="text-align: center;">{{myApply[0].reviewer}}</view>
+                        <!-- <view class="weui-form-preview__label" style="font-size:35rpx;color:#000000"><text>XXX的请假申请</text></view> -->
+                    </view>
+                    <view class="weui-form-preview__item">
+                        <view class="weui-form-preview__label">申请时间</view>
+                        <view class="weui-form-preview__value">{{myApply.applytime}}</view>
+                    </view>
+                    <view class="weui-form-preview__item">
+                        <view class="weui-form-preview__label">通过时间</view>
+                        <view class="weui-form-preview__value">{{myApply.approvetime}}</view>
+                    </view>
+                    <view class="weui-form-preview__item">
+                        <view class="weui-form-preview__label">申请原因</view>
+                        <view class="weui-form-preview__value">{{myApply.reason}}</view>
+                    </view>
+                </view>
+            </view>
+        <!-- </block> -->
+    </view>
+    <view class="page__bd">
+        <block wx:key="key">
+            <view class="weui-form-preview">
+                <view class="weui-form-preview__bd">
+                    <view class="weui-form-preview__item">
+                        <view class="weui-form-preview__label">审批人</view>
+                        <view class="weui-form-preview__value">name1</view>
+                    </view>
+                    <view class="weui-form-preview__item">
+                        <view class="weui-form-preview__label">起始时间</view>
+                        <view class="weui-form-preview__value">2020.02.02  10:00 --- 2020.02.02  18:00</view>
+                    </view>
+                    <view class="weui-form-preview__item">
+                        <view class="weui-form-preview__label">申请原因</view>
+                        <view class="weui-form-preview__value">申请原因详情申请原因详情申请原因详情申请原因详情</view>
+                    </view>
+                </view>
+            </view>
+            <view class="weui-form-preview">
+                <view class="weui-form-preview__bd">
+                    <view class="weui-form-preview__item">
+                        <view class="weui-form-preview__label">审批人</view>
+                        <view class="weui-form-preview__value">name2</view>
+                    </view>
+                    <view class="weui-form-preview__item">
+                        <view class="weui-form-preview__label">起始时间</view>
+                        <view class="weui-form-preview__value">2020.02.02  10:00 --- 2020.02.02  18:00</view>
+                    </view>
+                    <view class="weui-form-preview__item">
+                        <view class="weui-form-preview__label">申请原因</view>
+                        <view class="weui-form-preview__value">申请原因详情申请原因详情申请原因详情申请原因详情</view>
+                    </view>
+                </view>
+            </view>
+            <view class="weui-form-preview">
+                <view class="weui-form-preview__bd">
+                    <view class="weui-form-preview__item">
+                        <view class="weui-form-preview__label">审批人</view>
+                        <view class="weui-form-preview__value">name3</view>
+                    </view>
+                    <view class="weui-form-preview__item">
+                        <view class="weui-form-preview__label">起始时间</view>
+                        <view class="weui-form-preview__value">2020.02.02  10:00 --- 2020.02.02  18:00</view>
+                    </view>
+                    <view class="weui-form-preview__item">
+                        <view class="weui-form-preview__label">申请原因</view>
+                        <view class="weui-form-preview__value">申请原因详情申请原因详情申请原因详情申请原因详情</view>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+</view>
+<view class="page">
+    <mp-tabbar style="position:fixed;bottom:0;width:100%;left:0;right:0;" list="{{list}}" bindchange="tabChange"></mp-tabbar>
+</view>

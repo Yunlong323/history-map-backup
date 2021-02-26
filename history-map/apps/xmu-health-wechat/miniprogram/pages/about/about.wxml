@@ -1,0 +1,29 @@
+<view class='profile'>
+  <view>
+    <image class="profile-img" src="/images/logo.png"></image>
+  </view>
+</view>
+
+<view class='about'>
+  <view class='about-title'>关于厦门大学通行码</view>
+  <view class='about-info'>
+  厦门大学通行码为公益项目，由信息与网络中心与信息学院空间感知与计算团队联合研发。为有效预防、及时控制新冠肺炎的流行，确保师生员工健康平安地进出校内各公共空间而设计。各单位有需要可向信网中心申请采用。</view>
+  <view class='about-linkman-br'>联系人：刘老师</view>
+  <view class='about-linkman-br'>电话：2184264</view>
+
+  <view class='about-title'>免责声明</view>
+  <view class='about-info'>厦门大学通行码仅供各单位结合具体情况使用。通行码数据来源于政府公开与本校师生员工每日申报的信息，疫情实况内容由百度大数据团队合作提供，可能存在数据处理与转换过程的个别误差，以及地图坐标信息的技术偏差。</view>
+
+
+ <view class='about-title'>技术支持</view>
+  <view class='about-info'>陈龙彪 信息学院 助理教授 longbiaochen@xmu.edu.cn</view>
+  <view class='about-linkman-br'>李永川 信息学院 工程师 liyongchuan@xmu.edu.cn</view>
+  <view class='about-linkman-br'>何<div style="margin-left:14px"></div>昕 信息学院 硕士研究生 791950426@qq.com</view>
+
+
+  <view class='about-title'>数据支持</view>
+    <view class='about-info'>刘燕文 信息与网络中心 工程师 ywliu@xmu.edu.cn</view>
+
+
+</view>
+

@@ -1,0 +1,63 @@
+  <!-- <view class="weui-navbar">
+      <block wx:for="{{tabs}}" wx:key="*this">
+          <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+              <view class="weui-navbar__title">{{item}}</view>
+          </view>
+      </block>
+  </view> -->
+  <!-- <view class="weui-tab__panel">
+      <view class="weui-tab__content" hidden="{{activeIndex != 0}}"> -->
+          <!-- <view  hidden="{{activeIndex != 0}}" class="container"> -->
+
+                <view class="content">
+                    <!-- 标题、编辑 -->
+                    <view class="title flex-def flex-cCenter flex-zBetween">
+                      <view><text style="font-weight:600" space="ensp">  我的申请</text></view>
+                      <!-- <view class="editBtn" bindtap="showSelIcon">{{iconStatu?'取消':'编辑未审核申请'}}</view> -->
+                      <view class="editBtn" bindtap="showSelIcon">
+                        <button class='goodbutton'  hover-class="hover">{{iconStatu?'取消':'编辑未审核申请'}}</button>
+                      </view>
+                    </view>
+                    <!-- 申请信息 -->
+                    <view class="{{iconStatu?'margin-b':''}}">
+                      <view wx:for="{{myApply}}" wx:for-item="MyAply" wx:key="index" bindtap="toggleSel" class="item flex-def flex-cCenter flex-zBetween" data-id='{{MyAply.id}}'>
+                        <view data-id='{{MyAply.id}}'  data-index='{{index}}' class="flex-def flex-cCenter flex-zBetween order-item" bindtouchstart="drawStart" bindtouchmove="drawMove" bindtouchend="drawEnd" style="right:{{MyAply.right}}rpx">
+                          <icon wx:if="{{iconStatu&&!MyAply.state}}" type="success" size="20" color="{{MyAply.selStatu?'#0f0':'#999'}}" data-id='{{item.id}}' />
+                          <view data-id='{{item.id}}'>
+                            <text data-id='{{item.id}}' space="ensp">审 批 人： {{MyAply.reviewer}}</text>
+                            <text data-id='{{item.id}}'>准入地点： {{MyAply.venue}}-</text>
+                            <text data-id='{{item.id}}'>提交时间： {{MyAply.applytime}}</text>
+                            <text data-id='{{item.id}}'>准入时间： {{MyAply.starttime}}--{{MyAply.endtime}}</text>
+                            <text data-id='{{item.id}}'>申请原因： {{MyAply.reason}}</text>
+                            <text  wx:if="{{MyAply.state==-1}}" space="ensp"  data-id='{{item.id}}'>审批状态： 于{{MyAply.approvetime}} 拒绝申请 (Refused)</text>
+                            <text  wx:if="{{MyAply.state==0}}" space="ensp" data-id='{{item.id}}'>审批状态： 待审核 (pending)</text>
+                            <text  wx:if="{{MyAply.state==1}}" space="ensp"  data-id='{{item.id}}'>审批状态： 于{{MyAply.approvetime}} 通过申请 (Approved)</text>
+                          </view>
+                          <view class="remove"style="align:center">
+                            <image bindtap="deleteItem" data-state='{{MyAply.state}}' data-id='{{MyAply.id}}' style="align:left;width:70%;height:35%" src="../../../images/dustbin.png"></image>
+                          </view>
+                          
+                        </view>          
+                      </view>    
+                      <!-- 触底 -->
+                      <view class="weui-form-preview__ft "style="height:120rpx">
+                          <view class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active">———</view>
+                      </view>
+                    </view>
+                </view>
+
+                <view  wx:if="{{iconStatu}}"class="footer weui-form-preview__ft">
+                    <icon bindtap="selALL" style="margin:20rpx 5rpx 20rpx 20rpx" type="success" size="20" color="{{selAllFlag?'#0f0':'#999'}}" data-id='all' /><text bindtap="selALL" style="margin-right:20rpx">全选</text>
+                    <view  bindtap="deleteItems" style="color:=#F8F8F8" class="weui-form-preview__btn weui-form-preview__btn_default"  style="color:#B22222" hover-class="weui-form-preview__btn_active">撤销申请({{selList.length}})</view>
+                </view>
+                <!-- <view class="footer" wx:if="{{iconStatu}}" bindtap="delItem">
+                  <icon style="align:left;margin:20rpx 20rpx 20rpx 20rpx" type="success" size="20" color="{{MyAppr.selStatu?'#0f0':'#999'}}" data-id='all' />全选
+                  <text style="margin:20rpx 20rpx 20rpx 20rpx"></text>
+                  撤销申请({{selList.length}})Cancel
+                </view> -->
+
+            <!-- </view> -->
+      <!-- </view>
+  </view>
+
+

@@ -1,0 +1,79 @@
+{
+	"miniprogramRoot": "miniprogram/",
+	"cloudfunctionRoot": "cloudfunctions/",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"enhance": false,
+		"postcss": true,
+		"preloadBackgroundData": false,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"autoAudits": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"useCompilerModule": false,
+		"userConfirmedUseCompilerModuleSwitch": false
+	},
+	"appid": "wx3dce8ac520a3f06c",
+	"projectname": "%E5%8E%A6%E9%97%A8%E5%A4%A7%E5%AD%A6%E9%80%9A%E8%A1%8C%E7%A0%81",
+	"libVersion": "2.11.0",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": 0,
+					"name": "scancode-pass-green",
+					"pathName": "pages/my/my",
+					"query": "scene=oMEP07rEqUFqr9J3",
+					"scene": 1047
+				},
+				{
+					"id": 1,
+					"name": "scancode-reject",
+					"pathName": "pages/my/my",
+					"query": "scene=oMEP07rEqUFqr9J3",
+					"scene": 1047
+				},
+				{
+					"id": 2,
+					"name": "scancode-pass-yello",
+					"pathName": "pages/my/my",
+					"query": "scene=Hk7DyYUmIEzFNvJ5",
+					"scene": 1047
+				}
+			]
+		}
+	}
+}
