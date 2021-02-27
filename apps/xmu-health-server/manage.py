@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from application import app, manager
+from application import app,manager
 from flask_script import Server
 import www
 
