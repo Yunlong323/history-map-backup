@@ -1,7 +1,7 @@
 
 # -*- coding: utf-8 -*-
 from flask import jsonify
-from neo4j import GraphDatabase
+from neo4j.v1 import GraphDatabase
 uri = "bolt://219.229.80.233:7687"         #表示我们的driver指向哪个数据库地址
 driver = GraphDatabase.driver(uri, auth=("neo4j", "Mars@2018")) #创建驱动对象，去帮python到数据库执行neo4j语句
 
