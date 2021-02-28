@@ -23,37 +23,37 @@ function visualize() {
         }
     })
 
-    function init(data) {
+    // function init(data) {
 
-        var neo4jd3 = new Neo4jd3('#neo4jd3', {
-            images: {
-                '场所': "https://passport.xmu.edu.cn/static/images/common/venue.svg",
-                '目标人员': "https://passport.xmu.edu.cn/static/images/common/riskuser.svg",
-                '人员': "https://passport.xmu.edu.cn/static/images/common/user.svg",
-            },
-            minCollision: 60,
-            neo4jData:data,
+    //     var neo4jd3 = new Neo4jd3('#neo4jd3', {
+    //         images: {
+    //             '场所': "https://passport.xmu.edu.cn/static/images/common/venue.svg",
+    //             '目标人员': "https://passport.xmu.edu.cn/static/images/common/riskuser.svg",
+    //             '人员': "https://passport.xmu.edu.cn/static/images/common/user.svg",
+    //         },
+    //         minCollision: 60,
+    //         neo4jData:data,
 
-            nodeRadius: 25,
-            // onNodeDoubleClick: function(node) {
-            //     switch(node.id) {
-            //         case '25':
-            //             // Google
-            //             window.open(node.properties.url, '_blank');
-            //             break;
-            //         default:
-            //             var maxNodes = 5,
-            //                 data = neo4jd3.randomD3Data(node, maxNodes);
-            //             neo4jd3.updateWithD3Data(data);
-            //             break;
-            //     }
-            // },
-            // onRelationshipDoubleClick: function(relationship) {
-            //     console.log('double click on relationship: ' + JSON.stringify(relationship));
-            // },
-            // zoomFit: true
-            });
-    }
+    //         nodeRadius: 25,
+    //         // onNodeDoubleClick: function(node) {
+    //         //     switch(node.id) {
+    //         //         case '25':
+    //         //             // Google
+    //         //             window.open(node.properties.url, '_blank');
+    //         //             break;
+    //         //         default:
+    //         //             var maxNodes = 5,
+    //         //                 data = neo4jd3.randomD3Data(node, maxNodes);
+    //         //             neo4jd3.updateWithD3Data(data);
+    //         //             break;
+    //         //     }
+    //         // },
+    //         // onRelationshipDoubleClick: function(relationship) {
+    //         //     console.log('double click on relationship: ' + JSON.stringify(relationship));
+    //         // },
+    //         // zoomFit: true
+    //         });
+    // }
 
 
 

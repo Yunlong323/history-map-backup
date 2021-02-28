@@ -193,43 +193,43 @@ $("#venue_table").on("click",".editVenue",function(){
 });
 
 
-//展示地图
-function initMap(lon,lat){
+// //展示地图
+// function initMap(lon,lat){
 
-    //初始化百度地图
-    var map = new BMap.Map("map",{enableMapClick:false});//new 一个地图对象 
+//     //初始化百度地图
+//     var map = new BMap.Map("map",{enableMapClick:false});//new 一个地图对象 
 
-    if(lon==0 && lat==0){//新增
-        var point=new BMap.Point(118.103106,24.444323);        //设置地图的中心点
-    }else{//修改
-        var point=new BMap.Point(lon,lat);        //设置地图的中心点
-        var myIcon = new BMap.Icon("https://passport.xmu.edu.cn/static/images/common/map_icon.png", new BMap.Size(36,36));
-        var marker = new BMap.Marker(point,{icon:myIcon});  // 创建标注
-        map.addOverlay(marker);              // 将标注添加到地图中
-        marker.setAnimation(BMAP_ANIMATION_BOUNCE); 
-    }
+//     if(lon==0 && lat==0){//新增
+//         var point=new BMap.Point(118.103106,24.444323);        //设置地图的中心点
+//     }else{//修改
+//         var point=new BMap.Point(lon,lat);        //设置地图的中心点
+//         var myIcon = new BMap.Icon("https://passport.xmu.edu.cn/static/images/common/map_icon.png", new BMap.Size(36,36));
+//         var marker = new BMap.Marker(point,{icon:myIcon});  // 创建标注
+//         map.addOverlay(marker);              // 将标注添加到地图中
+//         marker.setAnimation(BMAP_ANIMATION_BOUNCE); 
+//     }
 
-    var zoom=16;                                            //设置地图的等级
-    map.centerAndZoom(point, zoom);                         // 在地图中显示
-    map.panBy(350, 250);//中心点偏移多少像素(width,height)为div 宽高的1/2;
-    map.enableScrollWheelZoom();                 //启用滚轮放大缩小
-    map.enableContinuousZoom();         //启用地图惯性拖拽，默认禁用
-    map.enableAutoResize();//设置当地图容器发生改变时地图自动适应
+//     var zoom=16;                                            //设置地图的等级
+//     map.centerAndZoom(point, zoom);                         // 在地图中显示
+//     map.panBy(350, 250);//中心点偏移多少像素(width,height)为div 宽高的1/2;
+//     map.enableScrollWheelZoom();                 //启用滚轮放大缩小
+//     map.enableContinuousZoom();         //启用地图惯性拖拽，默认禁用
+//     map.enableAutoResize();//设置当地图容器发生改变时地图自动适应
 
-    map.addEventListener("click",function(e){    //给地图添加点击事件
-        map.clearOverlays();                   
-        var lng=e.point.lng;
-        var lat=e.point.lat;
-        //创建标注位置
-        var pt = new BMap.Point(lng,lat);
-        var myIcon = new BMap.Icon("https://passport.xmu.edu.cn/static/images/common/map_icon.png", new BMap.Size(36,36));
-        var marker = new BMap.Marker(pt,{icon:myIcon});  // 创建标注
-        map.addOverlay(marker);              // 将标注添加到地图中
-        marker.setAnimation(BMAP_ANIMATION_BOUNCE); 
-        $("#id_lon").attr("value",lng);
-        $("#id_lat").attr("value",lat);
-    });
-}
+//     map.addEventListener("click",function(e){    //给地图添加点击事件
+//         map.clearOverlays();                   
+//         var lng=e.point.lng;
+//         var lat=e.point.lat;
+//         //创建标注位置
+//         var pt = new BMap.Point(lng,lat);
+//         var myIcon = new BMap.Icon("https://passport.xmu.edu.cn/static/images/common/map_icon.png", new BMap.Size(36,36));
+//         var marker = new BMap.Marker(pt,{icon:myIcon});  // 创建标注
+//         map.addOverlay(marker);              // 将标注添加到地图中
+//         marker.setAnimation(BMAP_ANIMATION_BOUNCE); 
+//         $("#id_lon").attr("value",lng);
+//         $("#id_lat").attr("value",lat);
+//     });
+// }
 
 
 //新增或保存
