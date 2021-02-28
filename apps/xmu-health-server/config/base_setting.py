@@ -51,7 +51,7 @@ UPLOAD = {
 }
 
 APP = {
-    "domain": "http://127.0.0.1:9000"
+    "domain": "https://127.0.0.1/"  
 }
 
 NEO4J = {

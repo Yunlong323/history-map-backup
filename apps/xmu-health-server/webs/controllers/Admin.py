@@ -12,6 +12,20 @@ from common.libs.Helper import getFormatDate
 from application import app
 import re
 import datetime
+# from functools import wraps
+# from flask import make_response
+ 
+ 
+# def allow_cross_domain(fun):
+#     @wraps(fun)
+#     def wrapper_fun(*args, **kwargs):
+#         rst = make_response(fun(*args, **kwargs))
+#         rst.headers['Access-Control-Allow-Origin'] = '*'
+#         rst.headers['Access-Control-Allow-Methods'] = 'PUT,GET,POST,DELETE'
+#         allow_headers = "Referer,Accept,Origin,User-Agent"
+#         rst.headers['Access-Control-Allow-Headers'] = allow_headers
+#         return rst
+#     return wrapper_fun #允许跨域
 
 route_admin = Blueprint('admin_page', __name__)
 
@@ -69,19 +83,22 @@ def login():
 
 @route_admin.route("/post")
 def post_scenery_info(label_list,name,cloud,score,open_time,must_know,intro_text,intro_audio,intro_video):
+    header =  {'Access-Control-Allow-Origin':'*',"Access-Control-Allow-Methods":"PUT,GET,POST,DELETE"}
     status = AdminService.create_scenery_node(label_list,name,cloud,score,open_time,must_know,intro_text,intro_audio,intro_video)
-    return jsonify(msg=status)
+    return jsonify(msg=status,header)
 
 @route_admin.route("/delete")
 def delete_scenery_node(scenery_name):
+    header =  {'Access-Control-Allow-Origin':'*',"Access-Control-Allow-Methods":"PUT,GET,POST,DELETE"}
     status = AdminService.delete_scenery_node(scenery_name)
-    return jsonify(msg=status)
+    return jsonify(msg=status,header)
 
 @route_admin.route("/display")
 def display_sceneries():
+    header =  {'Access-Control-Allow-Origin':'*',"Access-Control-Allow-Methods":"PUT,GET,POST,DELETE"}
     all_nodes = AdminService.display_sceneries()
     if not all_nodes:
-        return all_nodes
+        return jsonify(nodes=all_nodes,header)
 
 @route_admin.route("/logout")
 def logout():
