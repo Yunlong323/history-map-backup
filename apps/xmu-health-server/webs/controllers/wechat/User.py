@@ -5,6 +5,7 @@ from flask import Blueprint
 from flask import request, jsonify, g
 from common.libs.Helper import getFormatDate
 from common.libs.TrackService import TrackService
+from common.libs.AdminService import AdminService
 from common.libs.VenueService import VenueService
 from common.libs.UserService import UserService
 from webs.controllers.wechat import route_wechat
@@ -18,7 +19,7 @@ def getSceneryInfo():
     '''约定接口传过来{”screnery_name“:"嘉庚像"}'''
 
     resp = {"intro_text":"","intro_audio":"","intro_video":""}
-    node = UserService.getSceneryNodeInfo(scenery_name)
+    node = AdminService.getSceneryNodeInfo(scenery_name)
     resp["intro_text"] = node.intro_text
     resp["intro_audio"] = node.intro_audio
     resp["intro_video"] = node.intro_video
