@@ -1,0 +1,121 @@
+{
+  "id": "2382051",
+  "name": "send",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "6501235",
+      "name": "对",
+      "font_class": "icon--yes",
+      "unicode": "e61e",
+      "unicode_decimal": 58910
+    },
+    {
+      "icon_id": "15657080",
+      "name": "错误",
+      "font_class": "cuowu",
+      "unicode": "e633",
+      "unicode_decimal": 58931
+    },
+    {
+      "icon_id": "4051311",
+      "name": "用户",
+      "font_class": "yonghu",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "4866266",
+      "name": "收 藏",
+      "font_class": "shoucang",
+      "unicode": "e64a",
+      "unicode_decimal": 58954
+    },
+    {
+      "icon_id": "6953617",
+      "name": "提 交",
+      "font_class": "tijiao",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "7156860",
+      "name": "景点",
+      "font_class": "jingdian",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "10427742",
+      "name": "设 置",
+      "font_class": "shezhi",
+      "unicode": "e6c1",
+      "unicode_decimal": 59073
+    },
+    {
+      "icon_id": "11341880",
+      "name": "发送",
+      "font_class": "fasong",
+      "unicode": "e679",
+      "unicode_decimal": 59001
+    },
+    {
+      "icon_id": "12283277",
+      "name": "添加",
+      "font_class": "tianjia",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "16360277",
+      "name": "分类-选中",
+      "font_class": "leimupinleifenleileibie",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "19842856",
+      "name": "消 息",
+      "font_class": "xiaoxi",
+      "unicode": "e659",
+      "unicode_decimal": 58969
+    },
+    {
+      "icon_id": "19958943",
+      "name": "bangzhu-om",
+      "font_class": "bangzhu-om",
+      "unicode": "e62d",
+      "unicode_decimal": 58925
+    },
+    {
+      "icon_id": "19958976",
+      "name": "arrowdown",
+      "font_class": "arrowdown",
+      "unicode": "e719",
+      "unicode_decimal": 59161
+    },
+    {
+      "icon_id": "19958977",
+      "name": "arrowup",
+      "font_class": "arrowup",
+      "unicode": "e71a",
+      "unicode_decimal": 59162
+    },
+    {
+      "icon_id": "19958986",
+      "name": "arrowright",
+      "font_class": "arrowright",
+      "unicode": "e71b",
+      "unicode_decimal": 59163
+    },
+    {
+      "icon_id": "19959073",
+      "name": "arrowleft",
+      "font_class": "arrowleft",
+      "unicode": "e72a",
+      "unicode_decimal": 59178
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+<!--pages/desc/desc.wxml-->
+<view>
+  <!-- <rich-text nodes="{{htmlget}}"></rich-text>-->
+  <view class="title-container">
+    <view class="title">{{title}}</view>
+    <view class="heat-degree">热度:{{degree-of-heat}}</view>
+    <view class="score">评分:{{points}}</view>
+
+  </view>
+  <view class="video-item">
+    <video object-fit="cover" id="myVideo"
+      src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400"
+      binderror="videoErrorCallback" show-center-play-btn='{{false}}' show-play-btn="{{true}}" controls
+      picture-in-picture-mode="{{['push', 'pop']}}"></video>
+  </view>
+
+  <view class="article-container">
+    <text class="article-content">景区简介：{{text}}</text>
+  </view>
+
+  <!-- <button bindtap="wordYun" class="weui-btn" type="default" style="width:45% ;float:left">{{status_text}}</button>
+  <button bindtap="makecards" class="weui-btn" type="default" style="width:45% ;float:right">在此地打卡 </button> -->
+
+  <button bindtap="wordYun" class='btn1' style="width:45% ;float:left;margin-left:20rpx">
+    <image class='btnImg' src='../../image/voice.png'></image>
+    <view>{{status_text}}</view>
+ </button>
+
+  <button bindtap="makecards" class='btn2' style="width:45% ;float:right;margin-right:20rpx">
+    <image class='btnImg' src='../../image/location.png'></image>
+    <view>在此地打卡</view>
+ </button>
+
+
+
+</view>

@@ -1,2 +1,0 @@
-<!--miniprogram/pages/logout/logout.wxml-->
-<web-view src="https://ids.xmu.edu.cn/authserver/logout?service=https://ids.xmu.edu.cn/authserver/login?service=https://passport.xmu.edu.cn/wechat/callback"></web-view>

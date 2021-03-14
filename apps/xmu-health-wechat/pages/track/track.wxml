@@ -1,0 +1,44 @@
+<view class="page" wx:if="{{ !view }}">
+  <view class="page__hd">
+    <view class="page__title">已打卡地点</view>
+    <view class="page__desc">
+      <button class="weui-btn mini-btn" type="default" size="mini" bindtap='changeView' style='padding: 0 10px; '>浏览地图</button>
+    </view>
+  </view>
+  <view class="page__bd">
+    <view wx:if="{{ !queryResult.length }}" style='margin: 25px 15px;'>您暂时还没有打卡记录哦，赶紧去打卡吧！</view>
+    <view class="weui-form-preview" wx:for="{{ queryResult }}" wx:key="id">
+      <view class="weui-form-preview__hd">
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">足迹{{ index + 1 }}</view>
+          <view class="weui-form-preview__value_in-hd">{{ item.school }}</view>
+        </view>
+      </view>
+      <view class="weui-form-preview__bd">
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">时间</view>
+          <view class="weui-form-preview__value">{{ item.date }}</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">经度</view>
+          <view class="weui-form-preview__value">{{ item.lat }}</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">纬度</view>
+          <view class="weui-form-preview__value">{{ item.lng }}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view wx:if="{{ view }}" style='height: 500px!important; '>
+  <map
+    id="myMap"
+    latitude="24.436751"
+    longitude="118.0970009"
+    markers="{{ markers }}"
+    show-location
+    style="height:400px !important;width:100% !important"
+  ></map>
+  <button class="weui-btn mini-btn" type="default"  size="mini" bindtap='changeView' style="position: fixed; left: 10px; top: 27px; z-index: 10; margin: 0;">返回列表</button>
+</view>

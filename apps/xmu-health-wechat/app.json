@@ -1,0 +1,53 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/map/map",
+    "pages/sign/sign",
+    "pages/newmy/newmy",
+    "pages/login/login",
+    "pages/about/about",
+    "pages/track/track"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "厦大四史地图",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#666",
+    "selectedColor": "#C66",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "主页",
+        "iconPath": "/image/选中首页.png",
+        "selectedIconPath": "/image/首页.png"
+      },
+      {
+        "pagePath": "pages/newmy/newmy",
+        "text": "我的",
+        "iconPath": "/image/选中我的.png",
+        "selectedIconPath": "/image/my1.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "plugins": {
+    "chooseLocation": {
+      "version": "1.0.5",
+      "provider": "wx76a9a06e5b4e693e"
+    },
+    "WechatSI": {
+          "version": "0.3.4",
+          "provider": "wx069ba97219f66d99"
+    }
+    },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序定位"
+    }
+  }
+}

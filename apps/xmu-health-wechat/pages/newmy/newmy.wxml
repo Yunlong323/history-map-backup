@@ -1,0 +1,67 @@
+<!--pages/my/index.wxml-->
+<view class="container">
+  <view class="user-info">
+    <block>
+      <view class="headimage">
+        <open-data type="userAvatarUrl"></open-data>
+      </view>
+    </block>
+    <view class="usertext">
+      <open-data type="userNickName"></open-data>
+    </view>
+  </view>
+  <block>
+    <view class="tapbar">
+      <view class="item-avatar-xs">
+        <image src="../../image/points.png" />
+        <view style="padding-left:10px">
+          <text>我的积分 </text>
+          <text style="font-size:15px">(My points)</text>
+        </view>
+      </view>
+      <text><text class="c-g"></text>{{points}} 分</text>
+    </view>
+    <view bindtap="showDetail" class="tapbar">
+      <view class="item-avatar-xs">
+        <image src="../../image/userinfo.png" />
+        <view style="padding-left:10px">
+          <text wx:if="{{_isLogin == 1}}">个人信息 </text>
+          <text wx:if="{{_isLogin == 1}}" style="font-size:15px">(My Info)</text>
+          <text wx:if="{{_isLogin == 0}}">绑定账号 </text>
+          <text wx:if="{{_isLogin == 0}}" style="font-size:15px">(Bind Account)</text>
+        </view>
+      </view>
+      <text><text class="c-g"></text>></text>
+    </view>
+    <view bindtap="showTrack" class="tapbar">
+      <view class="item-avatar-xs">
+        <image src="../../image/track.png" />
+        <view style="padding-left:10px">
+          <text>我的轨迹 </text>
+          <text style="font-size:15px">(My Track)</text>
+        </view>
+      </view>
+      <text><text class="c-g"></text>></text>
+    </view>
+    <view bindtap="showAbout" class="tapbar">
+      <view class="item-avatar-xs">
+        <image src="../../image/about.png" />
+        <view style="padding-left:10px">
+          <text>关于我们 </text>
+          <text style="font-size:15px">(About Us)</text>
+        </view>
+      </view>
+      <text><text class="c-g"></text>></text>
+    </view>
+
+  </block>
+</view>
+
+<mp-halfScreenDialog show="{{typeT}}">
+  <view slot="title">登录方式</view>
+  <!-- <view slot="desc">这是自定义描述区</view> -->
+  <view slot="footer">
+    <button type="primary" bindtap="xmu_login" class="weui-btn">厦大统一身份认证</button>
+    <button type="primary" bindtap="staff_login" class="weui-btn">其他员工登录</button>
+  </view>
+</mp-halfScreenDialog>
