@@ -33,6 +33,37 @@ route_admin = Blueprint('admin_page', __name__)
 def login():
     return render_template("admin/login.html")
 
+@route_admin.route("/post")
+def post_scenery_info(label_list,name,cloud,score,open_time,must_know,intro_text,intro_audio,intro_video):
+    #header =  {'Access-Control-Allow-Origin':'*',"Access-Control-Allow-Methods":"PUT,GET,POST,DELETE"}
+    status = AdminService.create_scenery_node(label_list,name,cloud,score,open_time,must_know,intro_text,intro_audio,intro_video)
+    return jsonify(msg=status)
+
+@route_admin.route("/delete")
+def delete_scenery_node(scenery_name):
+ #   header =  {'Access-Control-Allow-Origin':'*',"Access-Control-Allow-Methods":"PUT,GET,POST,DELETE"}
+    status = AdminService.delete_scenery_node(scenery_name)
+    return jsonify(msg=status)
+
+@route_admin.route("/display")
+def display_sceneries():
+ #   header =  {'Access-Control-Allow-Origin':'*',"Access-Control-Allow-Methods":"PUT,GET,POST,DELETE"}
+    all_nodes = AdminService.display_sceneries()
+    if not all_nodes:
+        return jsonify(nodes=all_nodes)
+
+# @route_admin.route("/logout")
+# def logout():
+#     # 随机化admin的token，防止重登录
+#     token = AdminService.geneToken(32)
+#     AdminService.updateToken(g.current_user.no,token)
+
+#     response = make_response(redirect(UrlManager.buildUrl("/admin/login")))
+#     # 删除cookie,双重保险
+#     response.delete_cookie(app.config["AUTH_COOKIE_NAME"])
+#     return response
+
+
 
 #管理员登录
 # @route_admin.route("/callback")
@@ -80,33 +111,3 @@ def login():
 #         response = make_response(redirect(UrlManager.buildUrl("/")))
 #         response.set_cookie(app.config["AUTH_COOKIE_NAME"], token)
 #         return response
-
-@route_admin.route("/post")
-def post_scenery_info(label_list,name,cloud,score,open_time,must_know,intro_text,intro_audio,intro_video):
-    #header =  {'Access-Control-Allow-Origin':'*',"Access-Control-Allow-Methods":"PUT,GET,POST,DELETE"}
-    status = AdminService.create_scenery_node(label_list,name,cloud,score,open_time,must_know,intro_text,intro_audio,intro_video)
-    return jsonify(msg=status)
-
-@route_admin.route("/delete")
-def delete_scenery_node(scenery_name):
-    header =  {'Access-Control-Allow-Origin':'*',"Access-Control-Allow-Methods":"PUT,GET,POST,DELETE"}
-    status = AdminService.delete_scenery_node(scenery_name)
-    return jsonify(msg=status,header)
-
-@route_admin.route("/display")
-def display_sceneries():
-    header =  {'Access-Control-Allow-Origin':'*',"Access-Control-Allow-Methods":"PUT,GET,POST,DELETE"}
-    all_nodes = AdminService.display_sceneries()
-    if not all_nodes:
-        return jsonify(nodes=all_nodes,header)
-
-@route_admin.route("/logout")
-def logout():
-    # 随机化admin的token，防止重登录
-    token = AdminService.geneToken(32)
-    AdminService.updateToken(g.current_user.no,token)
-
-    response = make_response(redirect(UrlManager.buildUrl("/admin/login")))
-    # 删除cookie,双重保险
-    response.delete_cookie(app.config["AUTH_COOKIE_NAME"])
-    return response
