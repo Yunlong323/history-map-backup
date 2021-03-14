@@ -83,9 +83,9 @@ def login():
 
 @route_admin.route("/post")
 def post_scenery_info(label_list,name,cloud,score,open_time,must_know,intro_text,intro_audio,intro_video):
-    header =  {'Access-Control-Allow-Origin':'*',"Access-Control-Allow-Methods":"PUT,GET,POST,DELETE"}
+    #header =  {'Access-Control-Allow-Origin':'*',"Access-Control-Allow-Methods":"PUT,GET,POST,DELETE"}
     status = AdminService.create_scenery_node(label_list,name,cloud,score,open_time,must_know,intro_text,intro_audio,intro_video)
-    return jsonify(msg=status,header)
+    return jsonify(msg=status)
 
 @route_admin.route("/delete")
 def delete_scenery_node(scenery_name):
