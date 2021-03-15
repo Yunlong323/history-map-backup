@@ -10,52 +10,43 @@ import string
 
 
 class AdminService:
-    @staticmethod
-    def getSceneryNodeInfo(scenery_name): #获取数据库里的景点结点即可，在User.py中对结点进行提取信息
+    class AdminService:
+    @staticmethod 
+    def getSceneryNodeInfo(id): #获取数据库里的景点结点即可，在User.py中对结点进行提取信息
         db = get_db()
-        node = db.run("MATCH (node:xmu:signable) WHERE node.name=$scenery_name RETURN node",{"scenery_name":scenery_name} )
+        node = db.run("MATCH (node:xmu:signable) WHERE node.id=$id RETURN node",{"id":id} )
         return node  
 
     @staticmethod
     def display_sceneries():
         db = get_db()
-        # expression = "match (place:xmu:signable) return place"
-        # try:
-        #     sceneries = db.run(expression)
-        #     return list(sceneries) #把查找到的对象结点全部转化为列表
-        # except Exception as e:
-        #     return e
-        results = db.run("match (place:xmu:signable) return place")
-
-        venueList=[]
-        for record in results:
-            tmp=Venue(record['place'])
-            venueList.append(tmp)
-
-        return venueList
-        
-        
-
-    @staticmethod
-    def delete_scenery_node(scenery_name):
-        db = get_db()
-        expression = "match (place:xmu:signable {name:$name}) delete place "
+        expression = "match(place:xmu:signable) return place"
         try:
-            db.run(expression,{"name":scenery_name})
+            sceneries = db.run(expression)
+            return list(sceneries) #把查找到的对象结点全部转化为列表
+        except Exception as e:
+            return e
+    @staticmethod
+    def delete_scenery_node(id):
+        db = get_db()
+        expression = "match (place:xmu:signable {id:$id}) delete place "
+        try:
+            db.run(expression,{"id":id})
             return "1"
         except Exception as e:
             return None
 
 
     @staticmethod
-    def create_scenery_node(label_list,name,cloud,score,open_time,must_know,intro_text,intro_audio,intro_video):
+    def create_scenery_node(label_list,id,name,cloud,score,open_time,must_know,intro_text,intro_audio,intro_video):
         db = get_db()
         label_string = ":".join(label_list)
-        property_dict = {"name":name,"cloud":cloud,"score":score,"open_time":open_time,"must_know":must_know,"intro_text":intro_text,"intro_audio":intro_audio,"intro_video":intro_video}
+        property_dict = {"name":name,"id":id,"cloud":cloud,"score":score,"open_time":open_time,"must_know":must_know,"intro_text":intro_text,"intro_audio":intro_audio,"intro_video":intro_video}
 
         expression = "CREATE(place"+":"+label_string+'''
             {
                 name:$name,
+                id:$id,
                 cloud:$cloud,
                 score:$score,
                 open_time:$open_time,
@@ -71,8 +62,6 @@ class AdminService:
 
         except Exception as e:
             return None
-
-
 
 
     @staticmethod
