@@ -9,11 +9,6 @@ from neo4j.v1 import GraphDatabase, basic_auth
 
 
 
- 
- 
- 
-
-
 class Application(Flask):
     def __init__(self, import_name, template_folder=None, root_path=None):
         super(Application, self).__init__(import_name, template_folder=template_folder, root_path=root_path,

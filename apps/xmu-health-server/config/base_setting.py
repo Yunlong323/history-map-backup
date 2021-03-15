@@ -7,9 +7,9 @@ DEBUG = True
 #使用CDN加速静态资源
 CDN = True
 
-SALT = "46nourJfj2f44534341D"
+SALT = "46nourJfj2f44534621D"
 
-AUTH_COOKIE_NAME = "xmu_health"
+AUTH_COOKIE_NAME = "xmu_sishi"
 
 # 过滤 url,以下URL不经过权限判断
 IGNORE_URLS = [
@@ -55,7 +55,7 @@ APP = {
 }
 
 NEO4J = {
-    "address": "bolt://219.229.80.233:7687",
+    "address": "bolt://127.0.0.1:7687",
     "username": "neo4j",
     "password": "Mars@2018"
 }

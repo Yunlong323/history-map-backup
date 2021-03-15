@@ -1,4 +1,0 @@
-原本管理员界面的文件结构是index.html和css，font，imgs，js,test_back，admination_favicon.ico是同级目录。
-和学长的template里面放html，static里面放js css路径不一致
-导致部署服务器时出现冲突。
-因为nginx的转发规则中要求使用的是html所在的templates文件夹。但是index.html和他的后台js，css代码耦合是同级的。

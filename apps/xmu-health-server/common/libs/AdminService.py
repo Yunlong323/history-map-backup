@@ -18,12 +18,13 @@ class AdminService:
     @staticmethod
     def display_sceneries():
         db = get_db()
-        expression = "match(place:xmu:signable) return place"
+        expression = "match (place:xmu:signable) return place"
         try:
             sceneries = db.run(expression)
             return list(sceneries) #把查找到的对象结点全部转化为列表
         except Exception as e:
             return e
+
     @staticmethod
     def delete_scenery_node(scenery_name):
         db = get_db()
@@ -59,6 +60,9 @@ class AdminService:
 
         except Exception as e:
             return None
+
+
+
 
     @staticmethod
     def getByNoWhenLogin(no):

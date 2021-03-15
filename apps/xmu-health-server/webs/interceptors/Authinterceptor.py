@@ -11,7 +11,7 @@ import datetime
 
 @app.before_request
 def before_request():
-
+    return 
     ignore_urls = app.config["IGNORE_URLS"]
     path = request.path
 
