@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 from application import get_db
 from common.models.Admin import Admin
+from common.models.Venue import Venue
 import hashlib
 import base64
 import random
