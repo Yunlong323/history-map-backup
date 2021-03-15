@@ -37,7 +37,7 @@ def login():
 def post_scenery_info():
     resp = {"code": 200, "msg": "创建景点操作成功", "data": {}}
     req = request.values
-
+    file = request.files["file"] if "file" in request.files else None  # 要上传的目的文件
     id = req["id"] if "id" in req else None
     label_list = req["label_list"] if "label_list" in req else None
     name = req["name"] if "name" in req else None
@@ -48,47 +48,53 @@ def post_scenery_info():
     intro_text = req["intro_text"] if "intro_text" in req else None
     intro_audio = req["intro_audio"] if "intro_audio" in req else None
     intro_video = req["intro_video"] if "intro_video" in req else None
-
+#先获取属性，再判空
     if not id:
         resp["code"] = -1
         resp["msg"] = "缺少景点id信息"
         return jsonify(resp)
-    elif not label_list:
+    if not label_list:
         resp["code"] = -1
         resp["msg"] = "缺少景点标签列表信息"
         return jsonify(resp)
-    elif not name:
+    if not name:
         resp["code"] = -1
         resp["msg"] = "缺少景点名称信息"
         return jsonify(resp)
-    elif not cloud:
+    if not cloud:
         resp["code"] = -1
         resp["msg"] = "缺少景点热度信息"
         return jsonify(resp)
-    elif not score:
+    if not score:
         resp["code"] = -1
         resp["msg"] = "缺少景点评分信息"
         return jsonify(resp)
-    elif not open_time:
+    if not open_time:
         resp["code"] = -1
         resp["msg"] = "缺少景点开放时间信息"
         return jsonify(resp)
-    elif not must_know:
+    if not must_know:
         resp["code"] = -1
         resp["msg"] = "缺少景点游客须知信息"
         return jsonify(resp)
-    elif not intro_text:
+    if not intro_text:
         resp["code"] = -1
         resp["msg"] = "缺少景点文本介绍信息"
         return jsonify(resp)
-    elif not intro_audio:
+    if not intro_audio:
         resp["code"] = -1
         resp["msg"] = "缺少景点音频介绍信息"
         return jsonify(resp)
-    elif not intro_video:
+    if not intro_video:
         resp["code"] = -1
         resp["msg"] = "缺少景点视频介绍信息"
         return jsonify(resp)
+    if not file:
+        resp["code"] = -1
+        resp["msg"] = "请选择文件"
+        return jsonify(resp)
+#判空后，保存文件(此功能未做)
+
     AdminService.create_scenery_node(id,label_list,name,cloud,score,open_time,must_know,intro_text,intro_audio,intro_video)
     return jsonify(resp_data)
 

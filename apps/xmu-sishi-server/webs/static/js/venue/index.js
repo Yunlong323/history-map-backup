@@ -1356,6 +1356,7 @@ $(".upload_batch_whitelist_wrap").change(function () {
 
     var formData = new FormData();
     formData.append('file', $('#batch_whitelistFile')[0].files[0]);
+    alert($('#batch_whitelistFile')[0].files[0])
     formData.append('venue_ids',venue_ids);
     formData.append('tag_name',$('#add_batch_tag_name').val());
     $('#batch_whitelistFile').val('');//及时清空避免二次选择同一文件不能触发change事件
