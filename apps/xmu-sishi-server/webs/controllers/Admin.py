@@ -33,17 +33,76 @@ route_admin = Blueprint('admin_page', __name__)
 def login():
     return render_template("admin/login.html")
 
-@route_admin.route("/post")
-def post_scenery_info(label_list,name,cloud,score,open_time,must_know,intro_text,intro_audio,intro_video):
-    #header =  {'Access-Control-Allow-Origin':'*',"Access-Control-Allow-Methods":"PUT,GET,POST,DELETE"}
-    status = AdminService.create_scenery_node(label_list,name,cloud,score,open_time,must_know,intro_text,intro_audio,intro_video)
-    return jsonify(msg=status)
+@route_admin.route("/post",methods=['POST'])#上传一个景点的信息
+def post_scenery_info():
+    resp = {"code": 200, "msg": "创建景点操作成功", "data": {}}
+    req = request.values
 
-@route_admin.route("/delete")
-def delete_scenery_node(scenery_name):
- #   header =  {'Access-Control-Allow-Origin':'*',"Access-Control-Allow-Methods":"PUT,GET,POST,DELETE"}
-    status = AdminService.delete_scenery_node(scenery_name)
-    return jsonify(msg=status)
+    id = req["id"] if "id" in req else None
+    label_list = req["label_list"] if "label_list" in req else None
+    name = req["name"] if "name" in req else None
+    cloud = req["cloud"] if "cloud" in req else None
+    score = req["score"] if "score" in req else None
+    open_time = req["open_time"] if "open_time" in req else None
+    must_know=req["must_know"] if "must_konw" in req else None
+    intro_text = req["intro_text"] if "intro_text" in req else None
+    intro_audio = req["intro_audio"] if "intro_audio" in req else None
+    intro_video = req["intro_video"] if "intro_video" in req else None
+
+    if not id:
+        resp["code"] = -1
+        resp["msg"] = "缺少景点id信息"
+        return jsonify(resp)
+    elif not label_list:
+        resp["code"] = -1
+        resp["msg"] = "缺少景点标签列表信息"
+        return jsonify(resp)
+    elif not name:
+        resp["code"] = -1
+        resp["msg"] = "缺少景点名称信息"
+        return jsonify(resp)
+    elif not cloud:
+        resp["code"] = -1
+        resp["msg"] = "缺少景点热度信息"
+        return jsonify(resp)
+    elif not score:
+        resp["code"] = -1
+        resp["msg"] = "缺少景点评分信息"
+        return jsonify(resp)
+    elif not open_time:
+        resp["code"] = -1
+        resp["msg"] = "缺少景点开放时间信息"
+        return jsonify(resp)
+    elif not must_know:
+        resp["code"] = -1
+        resp["msg"] = "缺少景点游客须知信息"
+        return jsonify(resp)
+    elif not intro_text:
+        resp["code"] = -1
+        resp["msg"] = "缺少景点文本介绍信息"
+        return jsonify(resp)
+    elif not intro_audio:
+        resp["code"] = -1
+        resp["msg"] = "缺少景点音频介绍信息"
+        return jsonify(resp)
+    elif not intro_video:
+        resp["code"] = -1
+        resp["msg"] = "缺少景点视频介绍信息"
+        return jsonify(resp)
+    AdminService.create_scenery_node(id,label_list,name,cloud,score,open_time,must_know,intro_text,intro_audio,intro_video)
+    return jsonify(resp_data)
+
+@route_admin.route("/delete",methods=['POST'])
+def delete_scenery_node():#通过id来删除
+    resp = {"code": 200, "msg": "删除景点操作成功", "data": {}}
+    req = request.values
+    del_scenery_id = req["id"] if "id" in req else None    
+     if not del_scenery_id:
+        resp["code"] = -1
+        resp["msg"] = "请正确提供景点的id值"
+        return jsonify(resp)
+    AdminService.delete_scenery_node(del_scenery_id)
+    return jsonify(resp_data)
 
 @route_admin.route("/display")
 def display_sceneries():
@@ -61,7 +120,7 @@ def display_sceneries():
         "intro_audio": record.intro_audio,
         "intro_video": record.intro_video,
     })
-    resp_data["list"] = _venueList
+    resp_data["list"] = _venueList  # 数据库返回的值用对象（字典）接
     return jsonify(resp_data)
 
 

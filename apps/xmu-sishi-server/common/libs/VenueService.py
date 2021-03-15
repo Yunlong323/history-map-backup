@@ -8,7 +8,7 @@ import time
 
 class VenueService:
 
-#########################################################################################
+
     @staticmethod
     def search(adminno,status,name,page,size):
         db = get_db()

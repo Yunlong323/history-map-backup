@@ -13,16 +13,20 @@ import datetime
 from application import app
 import json
 
-@route_wechat.route("/getSceneryInfo",methods=["GET","POST"])
+@route_wechat.route("/getSceneryInfo",methods=["POST"])
 def getSceneryInfo():
-    scenery_name = request.values["scenery_name"]
-    '''约定接口传过来{”screnery_name“:"嘉庚像"}'''
-
-    resp = {"intro_text":"","intro_audio":"","intro_video":""}
-    node = AdminService.getSceneryNodeInfo(scenery_name)
+    resp = {"code": 200, "msg": "创建景点操作成功", "intro_text":"","intro_audio":"","intro_video":""}
+    scenery_id = request.values["scenery_id"] if "scenery_id" in request.values else None
+    #约定接口POST过来{"scenery_id":"0"}
+    if not scenery_name:
+        resp["code"] = -1
+        resp["msg"] = "没有正确给出景点id"
+        return jsonify(resp)
+    
+    node = AdminService.getSceneryNodeInfo(scenery_id)
     resp["intro_text"] = node.intro_text
     resp["intro_audio"] = node.intro_audio
-    resp["intro_video"] = node.intro_video
+    resp["intro_video"] = node.intro_video 
     return jsonify(resp)
 
 

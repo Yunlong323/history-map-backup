@@ -225,7 +225,7 @@ def uploadWhitelist():
 
     tag_name = request.values["tag_name"] if 'tag_name' in request.values else ""
     id = request.values["venue_id"] if "venue_id" in request.values else None
-    file = request.files["file"] if "file" in request.files else None
+    file = request.files["file"] if "file" in request.files else None #要上传的目的文件
     
     if not id:
         resp["code"] = -1
