@@ -47,6 +47,7 @@ def delete_scenery_node(scenery_name):
 
 @route_admin.route("/display")
 def display_sceneries():
+	print("i am here")
  #   header =  {'Access-Control-Allow-Origin':'*',"Access-Control-Allow-Methods":"PUT,GET,POST,DELETE"}
     all_nodes = AdminService.display_sceneries()
     if not all_nodes:
