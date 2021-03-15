@@ -47,25 +47,24 @@ def delete_scenery_node(scenery_name):
 
 @route_admin.route("/display")
 def display_sceneries():
- #   header =  {'Access-Control-Allow-Origin':'*',"Access-Control-Allow-Methods":"PUT,GET,POST,DELETE"}
-	resp_data = {}
-	venueList = AdminService.display_sceneries()
-	_venueList= []
+    resp_data = {}
+    venueList = AdminService.display_sceneries()
+    _venueList= []
 
-	# for record in venueList:
-	# 	_venueList.append({
-	# 	"name": record.name,
-	# 	"cloud": record.cloud,
-	# 	"score": record.score,
-	# 	"open_time": record.open_time,
-	# 	"must_know": record.must_know,
-	# 	"intro_text": record.intro_text,
-	# 	"intro_audio": record.intro_audio,
-	# 	"intro_video": record.intro_video,
-	#    })
+	for record in venueList:
+		_venueList.append({
+		"name": record.name,
+		"cloud": record.cloud,
+		"score": record.score,
+		"open_time": record.open_time,
+		"must_know": record.must_know,
+		"intro_text": record.intro_text,
+		"intro_audio": record.intro_audio,
+		"intro_video": record.intro_video,
+	})
 
-	resp_data["list"] = _venueList
-	return jsonify(resp_data)
+    resp_data["list"] = _venueList
+    return jsonify(resp_data)
 
 
 # @route_admin.route("/logout")
