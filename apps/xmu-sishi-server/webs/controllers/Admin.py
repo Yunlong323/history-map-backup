@@ -50,7 +50,7 @@ def display_sceneries():
  #   header =  {'Access-Control-Allow-Origin':'*',"Access-Control-Allow-Methods":"PUT,GET,POST,DELETE"}
 	resp_data = {}
 	venueList = AdminService.display_sceneries()
-	_venueList=[]
+	_venueList= []
 
 	# for record in venueList:
 	# 	_venueList.append({
@@ -62,11 +62,12 @@ def display_sceneries():
 	# 	"intro_text": record.intro_text,
 	# 	"intro_audio": record.intro_audio,
 	# 	"intro_video": record.intro_video,
- #    })
+	#    })
 
 	resp_data["list"] = _venueList
 	return jsonify(resp_data)
-        
+
+
 # @route_admin.route("/logout")
 # def logout():
 #     # 随机化admin的token，防止重登录
