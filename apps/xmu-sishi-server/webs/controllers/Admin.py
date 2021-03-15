@@ -97,7 +97,7 @@ def delete_scenery_node():#通过id来删除
     resp = {"code": 200, "msg": "删除景点操作成功", "data": {}}
     req = request.values
     del_scenery_id = req["id"] if "id" in req else None    
-     if not del_scenery_id:
+    if not del_scenery_id:
         resp["code"] = -1
         resp["msg"] = "请正确提供景点的id值"
         return jsonify(resp)
