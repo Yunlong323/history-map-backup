@@ -10,7 +10,6 @@ import string
 
 
 class AdminService:
-    class AdminService:
     @staticmethod 
     def getSceneryNodeInfo(id): #获取数据库里的景点结点即可，在User.py中对结点进行提取信息
         db = get_db()
