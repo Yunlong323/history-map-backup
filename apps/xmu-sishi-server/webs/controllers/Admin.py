@@ -51,17 +51,17 @@ def display_sceneries():
     venueList = AdminService.display_sceneries()
     _venueList= []
 
-	for record in venueList:
-		_venueList.append({
-		"name": record.name,
-		"cloud": record.cloud,
-		"score": record.score,
-		"open_time": record.open_time,
-		"must_know": record.must_know,
-		"intro_text": record.intro_text,
-		"intro_audio": record.intro_audio,
-		"intro_video": record.intro_video,
-	})
+    for record in venueList:
+        _venueList.append({
+        "name": record.name,
+        "cloud": record.cloud,
+        "score": record.score,
+        "open_time": record.open_time,
+        "must_know": record.must_know,
+        "intro_text": record.intro_text,
+        "intro_audio": record.intro_audio,
+        "intro_video": record.intro_video,
+    })
 
     resp_data["list"] = _venueList
     return jsonify(resp_data)
