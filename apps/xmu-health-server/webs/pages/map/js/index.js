@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function get_all() {
         axios({
             method: 'GET',
-            url: 'https://sishi.xmu.edu.cn/display_sceneries'
+            url: 'https://sishi.xmu.edu.cn/api/admin/display'
         }).then(response => {
             // console.log(response);
             // 遍历显示
