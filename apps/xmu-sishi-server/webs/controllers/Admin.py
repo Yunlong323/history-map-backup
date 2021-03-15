@@ -49,9 +49,9 @@ def delete_scenery_node(scenery_name):
 def display_sceneries():
 	print("i am here")
  #   header =  {'Access-Control-Allow-Origin':'*',"Access-Control-Allow-Methods":"PUT,GET,POST,DELETE"}
-    all_nodes = AdminService.display_sceneries()
-    if not all_nodes:
-        return jsonify(nodes=all_nodes)
+	all_nodes = AdminService.display_sceneries()
+	# if not all_nodes:
+	return jsonify(nodes=all_nodes)
 
 # @route_admin.route("/logout")
 # def logout():
