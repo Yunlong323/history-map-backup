@@ -47,12 +47,25 @@ def delete_scenery_node(scenery_name):
 
 @route_admin.route("/display")
 def display_sceneries():
-	print("i am here")
  #   header =  {'Access-Control-Allow-Origin':'*',"Access-Control-Allow-Methods":"PUT,GET,POST,DELETE"}
-	all_nodes = AdminService.display_sceneries()
-	# if not all_nodes:
-	return jsonify(nodes=all_nodes)
+	resp_data = {}
+	venueList = AdminService.display_sceneries()
+	_venueList=[]
+    for record in venueList:
+        _venueList.append({
+	        "name": record.name,
+	        "cloud": record.cloud,
+	        "score": record.score,
+	        "open_time": record.open_time,
+	        "must_know": record.must_know,
+	        "intro_text": record.intro_text,
+	        "intro_audio": record.intro_audio,
+	        "intro_video": record.intro_video,
+    })
 
+    resp_data["list"] = _venueList
+    return jsonify(resp_data)
+        
 # @route_admin.route("/logout")
 # def logout():
 #     # 随机化admin的token，防止重登录

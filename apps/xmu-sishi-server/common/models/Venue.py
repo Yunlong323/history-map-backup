@@ -3,11 +3,12 @@
 
 class Venue():
     def __init__(self, venue):
-        self.id= venue['id']
+        # self.id= venue['id']
         self.name= venue['name']
-        self.lat= venue['lat']
-        self.lon= venue['lon']
-        self.status= venue['status']
-        self.permissionType= venue['permissionType']
-        self.createtime= venue['createtime']
-
+        self.cloud= venue['cloud']
+        self.score= venue['score']
+        self.open_time= venue['open_time']
+        self.must_know= venue['must_know']
+        self.intro_text= venue['intro_text']
+        self.intro_audio= venue['intro_audio']
+        self.intro_video= venue['intro_video']
