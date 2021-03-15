@@ -99,10 +99,10 @@ document.addEventListener('DOMContentLoaded', function () {
             method: 'GET',
             url: 'https://sishi.xmu.edu.cn/api/admin/display'
         }).then(response => {
-            console.log(response.data);
+            // console.log(response.data);
             // 遍历显示
-            for (let i = 0; i < response.data.length; i++) {
-                create_ele(response.data[i]);
+            for (let i = 0; i < response.data["list"].length; i++) {
+                create_ele(response.data["list"][i]);
             }
             // 重新获取del重数
             del = document.querySelector('.table').querySelectorAll('a');
@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function () {
             for (let i = 0; i < del.length; i++) {
                 // console.log(i);
                 del[i].onclick = function () {
-                    cut(i, response.data);
+                    cut(i, response.data["list"][i]);
                 }
             }
             // cut(del.length);
