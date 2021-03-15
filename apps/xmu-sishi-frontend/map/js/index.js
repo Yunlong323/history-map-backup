@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function () {
             method: 'GET',
             url: 'https://sishi.xmu.edu.cn/api/admin/display'
         }).then(response => {
-            // console.log(response);
+            console.log(response.data);
             // 遍历显示
             for (let i = 0; i < response.data.length; i++) {
                 create_ele(response.data[i]);
