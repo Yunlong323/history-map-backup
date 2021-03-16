@@ -14,17 +14,25 @@ class AdminService:
     def getSceneryNodeInfo(id): #获取数据库里的景点结点即可，在User.py中对结点进行提取信息
         db = get_db()
         node = db.run("MATCH (node:xmu:signable) WHERE node.id=$id RETURN node",{"id":id} )
+        
         return node  
 
     @staticmethod
     def display_sceneries():
         db = get_db()
-        expression = "match(place:xmu:signable) return place"
-        try:
-            sceneries = db.run(expression)
-            return list(sceneries) #把查找到的对象结点全部转化为列表
-        except Exception as e:
-            return e
+        results = db.run("match(place:xmu:signable) return place")
+        venueList = []
+        for record in results:
+            tmp = Venue(recode['place']) #转化为python中的数据库Venue类
+            venueList.append(tmp)
+        return venueList
+        # expression = "match(place:xmu:signable) return place"
+        # try:
+        #     sceneries = db.run(expression)
+        #     return list(sceneries) #把查找到的对象结点全部转化为列表
+        # except Exception as e:
+        #     return e
+
     @staticmethod
     def delete_scenery_node(id):
         db = get_db()
