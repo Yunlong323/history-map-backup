@@ -41,7 +41,7 @@ PAGE_SIZE = 100
 PAGE_DISPLAY = 10
 
 UPLOAD = {
-    "ext": ["txt", "TXT","jpg", "gif", "bmp", "jpeg", "png","mp3","mp4","flv","avi"]#["jpg", "gif", "bmp", "jpeg", "png"],
+    "ext": ["txt", "TXT","jpg", "gif", "bmp", "jpeg", "png","mp3","mp4","flv","avi"],#["jpg", "gif", "bmp", "jpeg", "png"],
     # "prefix_path": "/webs/static/upload/",
     # "prefix_url": "/static/upload/"
     "whitelist_prefix_path": "/files/whitelist/",
