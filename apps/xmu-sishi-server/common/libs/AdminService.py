@@ -20,10 +20,10 @@ class AdminService:
     @staticmethod
     def display_sceneries():
         db = get_db()
-        results = db.run("match(place:xmu:signable) return place")
+        results = db.run("match (place:xmu:signable) return place")
         venueList = []
         for record in results:
-            tmp = Venue(recode['place']) #转化为python中的数据库Venue类
+            tmp = Venue(record['place']) #转化为python中的数据库Venue类
             venueList.append(tmp)
         return venueList
         # expression = "match(place:xmu:signable) return place"
