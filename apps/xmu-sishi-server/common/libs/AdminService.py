@@ -13,9 +13,9 @@ class AdminService:
     @staticmethod 
     def getSceneryNodeInfo(id): #获取数据库里的景点结点即可，在User.py中对结点进行提取信息
         db = get_db()
-        node = db.run("MATCH (node:xmu:signable) WHERE node.id=$id RETURN node",{"id":id} )
-        
-        return node  
+        node = db.run("MATCH (place:xmu:signable) WHERE place.id=$id RETURN place",{"id":id} )
+        tmp = Venue(node["place"])
+        return tmp
 
     @staticmethod
     def display_sceneries():
@@ -45,15 +45,15 @@ class AdminService:
 
 
     @staticmethod
-    def create_scenery_node(label_list,id,name,cloud,score,open_time,must_know,intro_text,intro_audio,intro_video):
+    def create_scenery_node(id,label_list,name,cloud,score,open_time,must_know,intro_text,intro_audio,intro_video):
         db = get_db()
         label_string = ":".join(label_list)
-        property_dict = {"name":name,"id":id,"cloud":cloud,"score":score,"open_time":open_time,"must_know":must_know,"intro_text":intro_text,"intro_audio":intro_audio,"intro_video":intro_video}
+        property_dict = {"id":id,"name":name,"cloud":cloud,"score":score,"open_time":open_time,"must_know":must_know,"intro_text":intro_text,"intro_audio":intro_audio,"intro_video":intro_video}
 
         expression = "CREATE(place"+":"+label_string+'''
             {
-                name:$name,
                 id:$id,
+                name:$name,
                 cloud:$cloud,
                 score:$score,
                 open_time:$open_time,
