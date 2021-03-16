@@ -38,7 +38,33 @@ class UserService:
 
 
 
+    @staticmethod
+    def createuser(data):
+        db = get_db
+        if data['usertype'] == 1:
+            usertype = 'STUDENT'
+        elif data['usertype'] == 2:
+            usertype = 'TEACHER'
+        else:
+            usertype = 'STAFF'
+        expression="CREATE(no:$data['no'])"
+        try:
+            results = db.run(expression)
+            return 1
+        except Exception as e:
+            return None
 
+    @staticmethod
+    def searchuser(name,label):
+        db=get_db
+        expression="MATCH(user:USER,{name:$name} RETURN user"
+        result=db.run(expression)
+        userList = []
+        for record in results:
+            tmp = User(record['node'])
+            userList.append(tmp)
+        return userList
+        
     @staticmethod
     def geneUserid(userno, salt):
         m = hashlib.md5()
