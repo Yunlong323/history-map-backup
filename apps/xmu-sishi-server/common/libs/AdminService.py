@@ -13,8 +13,11 @@ class AdminService:
     @staticmethod 
     def getSceneryNodeInfo(id): #获取数据库里的景点结点即可，在User.py中对结点进行提取信息
         db = get_db()
-        node = db.run("MATCH (place:xmu:signable) WHERE place.id=$id RETURN place",{"id":id} )
-        tmp = Venue(node["place"])
+        results = db.run("MATCH (place:xmu:signable) WHERE place.id=$id RETURN place",{"id":id} )
+        venue_list = []
+        for record in results:
+            tmp = Venue(record["place"])#构造python景点对象
+            venue_list.append(tmp)
         return tmp
 
     @staticmethod

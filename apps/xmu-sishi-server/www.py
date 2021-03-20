@@ -22,9 +22,9 @@ from webs.controllers.Trace import route_trace
 from webs.controllers.Business import route_business
 # from webs.controllers.API import route_api
 
-app.register_blueprint(route_wechat, url_prefix="/wechat")
+app.register_blueprint(route_wechat, url_prefix="/api/wechat")
 app.register_blueprint(route_admin, url_prefix="/api/admin")
-app.register_blueprint(route_user, url_prefix="/user")
+app.register_blueprint(route_user, url_prefix="/api/user")
 app.register_blueprint(route_venue, url_prefix="/venue")
 app.register_blueprint(route_index, url_prefix="/")
 app.register_blueprint(route_track, url_prefix="/track")
