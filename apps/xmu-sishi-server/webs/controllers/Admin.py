@@ -107,8 +107,12 @@ def delete_scenery_node():#通过id来删除
         resp["code"] = -1
         resp["msg"] = "请正确提供景点的id值"
         return jsonify(resp)
-    AdminService.delete_scenery_node(del_scenery_id)
-    return jsonify(resp_data)
+    result = AdminService.delete_scenery_node(del_scenery_id)
+    if result==1:
+        return jsonify(resp_data)
+    else:
+        resp_data["msg"] = "删除景点操作失败，请查看是否有该景点"
+        return jsonify(resp_data)
 
 @route_admin.route("/display")
 def display_sceneries():
