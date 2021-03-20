@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         axios({
             method: 'GET',
-            url: 'http://https://sishi.xmu.edu.cn/delete_scenery_node',
+            url: 'https://sishi.xmu.edu.cn/api/admin/delete',
             params: {
                 name: nam
             }
@@ -195,7 +195,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // console.log(name_t.value, xmu_t.value, cloud_t.value, score_t.value, open_time_t.value, must_know_t.value, intro_text_t.value, intro_audio_t.value, intro_vidio_t.value);
             axios({
                 method: 'GET',
-                url: 'https://sishi.xmu.edu.cn/post_scenery_info',
+                url: 'https://sishi.xmu.edu.cn/api/admin/post',
                 params: {
                     label_list: JSON.stringify([xmu_t.value, selector]),
                     name: name_t.value,
