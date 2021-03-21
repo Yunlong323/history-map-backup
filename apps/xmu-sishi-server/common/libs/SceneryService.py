@@ -62,8 +62,8 @@ class SceneryService:
         print(4, id, label_list, name, cloud, score, open_time, must_know, intro_text, intro_audio, intro_video,signable)
         try:
             db = get_db()
-            label_list = eval(label_list)
-            # label_string = ":".join(label_list)
+            #label_list = eval(label_list)
+             label_string = ":".join(label_list)
             # expression = "CREATE(place"+":"+label_string+'''
             # {
             #     id:$id,
@@ -78,7 +78,7 @@ class SceneryService:
             # }
             # '''+")"
             # label_list[0]标签干什么用？
-            expression = f"CREATE(scenery:SCENERY:"+label_list[1]+'''
+            expression = f"CREATE(scenery:SCENERY:"+label_string+'''
             {
                 id:$id,
                 name:$name,

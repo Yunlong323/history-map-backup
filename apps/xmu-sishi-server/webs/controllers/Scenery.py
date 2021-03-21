@@ -120,7 +120,9 @@ def display_sceneries():
     venueList = SceneryService.display_sceneries()
     _venueList= []
     for record in venueList:
+        
         _venueList.append({
+        "id":record.id,
         "name": record.name,
         "cloud": record.cloud,
         "score": record.score,
@@ -129,6 +131,7 @@ def display_sceneries():
         "intro_text": record.intro_text,
         "intro_audio": record.intro_audio,
         "intro_video": record.intro_video,
+        "signable":record.signable
     })
     resp_data["list"] = _venueList  # 数据库返回的值用对象（字典）接
     return jsonify(resp_data)
