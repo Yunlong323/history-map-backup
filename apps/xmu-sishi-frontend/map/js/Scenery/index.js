@@ -50,8 +50,8 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log(nam);
         axios({
             method: 'POST',
-            // url: 'https://sishi.xmu.edu.cn/delete_scenery_node',
-            url: 'http://127.0.0.1:9000/api/scenery/delete_scenery_node',
+            url: 'https://sishi.xmu.edu.cn/delete_scenery_node',
+          //  url: 'http://127.0.0.1:9000/api/scenery/delete_scenery_node',
             params: {
                 name: nam
             }
@@ -103,8 +103,8 @@ document.addEventListener('DOMContentLoaded', function() {
             //     'Access-Control-Allow-Origin': "*",
             //     'Access-Control-Allow-Headers': '*'
             // },
-            // url: 'https://sishi.xmu.edu.cn/api/scenery/display'
-            url: 'http://127.0.0.1:9000/api/scenery/display'
+             url: 'https://sishi.xmu.edu.cn/api/scenery/display'
+           // url: 'http://127.0.0.1:9000/api/scenery/display'
         }).then(response => {
             console.log(response.data);
             // 遍历显示
@@ -202,8 +202,8 @@ document.addEventListener('DOMContentLoaded', function() {
             axios({
                 // method: 'GET',
                 method: 'POST',
-                // url: 'https://sishi.xmu.edu.cn/post_scenery_info',
-                url: 'http://127.0.0.1:9000/api/scenery/post_scenery_info',
+                 url: 'https://sishi.xmu.edu.cn/post_scenery_info',
+              //  url: 'http://127.0.0.1:9000/api/scenery/post_scenery_info',
                 params: {
                     label_list: JSON.stringify([xmu_t.value, selector]),
                     name: name_t.value,
