@@ -78,7 +78,7 @@ class UserService:
             userList.append(tmp)
         return userList
 
-           @staticmethod
+
     def updateTest2(test):
         db = get_db()
 
