@@ -9,6 +9,26 @@ uri = "bolt://219.229.80.233:7687"
 driver = GraphDatabase.driver(uri, auth=("neo4j", "Mars@2018"))
 
 class AdminService:
+    @staticmethod
+    def delete_scenery_node(id):
+        # db = get_db()
+        # expression = "match (place:xmu:signable {id:$id}) delete place "
+        # try:
+        #     db.run(expression,{"id":id})
+        #     return "1"
+        # except Exception as e:
+        #     return None
+    #    print(id)
+       # db = get_db()
+        db = driver.session()
+        # expression = "match (place:xmu:signable {id:$id}) delete place "
+        expression = "match (scenery:signable) where scenery.id="+ str(id) +" delete scenery "
+        print(expression)
+        try:
+            db.run(expression, {"id": id})
+            return 1
+        except Exception as e:
+            return None
 
 
     @staticmethod
@@ -52,15 +72,15 @@ class AdminService:
         except Exception as e:
             print(e)
             return None
-    @staticmethod
-    def delete_scenery_node(scenery_name):
-        db = driver.session()
-        expression = "MATCH (place:xmu:signable {name:$name}) DELETE place "
-        try:
-            db.run(expression,{"name":scenery_name})
-            return "1"
-        except Exception as e:
-            return None
+    # @staticmethod
+    # def delete_scenery_node(scenery_name):
+    #     db = driver.session()
+    #     expression = "MATCH (place:xmu:signable {name:$name}) DELETE place "
+    #     try:
+    #         db.run(expression,{"name":scenery_name})
+    #         return "1"
+    #     except Exception as e:
+    #         return None
     @staticmethod
     def update_scenery_node(scenery_name,key,value):
         db = driver.session()
@@ -125,8 +145,10 @@ admin = AdminService()
 # a = user.search_user_node("13906040102")
 #
 # print(a.name)
-admin.create_scenery_node(["xmu","signable"],"涉台文物古迹","hot",8.5,"8:00-22:00","可以拍照",'''
-厦门大学革命史展览馆，位于厦门大学同安楼一楼，于2016年4月正式开馆。展馆设有六个展厅，分“八闽革命摇篮”、“坚持红旗不倒”、“抗日救亡基地”与“东南民主堡垒”四个单元，全面记录了从1921年至1950年厦门大学师生反抗外来侵略、拯救民族危机、加强党团建设的历史。
-“无古不成今，观今宜鉴古。”重温与党同龄的厦门大学自强不息的革命岁月，让我们更加坚定传承红色基因、弘扬革命精神，进一步为实现厦门大学“两个百年”奋斗目标和实现中华民族伟大复兴的中国梦注入了强大的精神动力。
-2020年12月1日，厦门大学革命史展览馆“全国关心下一代党史国史教育基地”顺利揭牌，有力推进了青年学生党史国史教育这一项基础工程。立于厦大“新百年”的潮头，革命史馆将继续集聚历史能量，发挥教育效用，成为广大青年学生补足“精神之钙”、点亮“信仰之灯”、铸牢“信念之魂”的红色“聚宝盆”。
-''',"暂无","暂无")
+a = admin.delete_scenery_node(1)
+print(a)
+# admin.create_scenery_node(12,["xmu","signable"],"涉台文物古迹","hot",8.5,"8:00-22:00","可以拍照",'''
+# 厦门大学革命史展览馆，位于厦门大学同安楼一楼，于2016年4月正式开馆。展馆设有六个展厅，分“八闽革命摇篮”、“坚持红旗不倒”、“抗日救亡基地”与“东南民主堡垒”四个单元，全面记录了从1921年至1950年厦门大学师生反抗外来侵略、拯救民族危机、加强党团建设的历史。
+# “无古不成今，观今宜鉴古。”重温与党同龄的厦门大学自强不息的革命岁月，让我们更加坚定传承红色基因、弘扬革命精神，进一步为实现厦门大学“两个百年”奋斗目标和实现中华民族伟大复兴的中国梦注入了强大的精神动力。
+# 2020年12月1日，厦门大学革命史展览馆“全国关心下一代党史国史教育基地”顺利揭牌，有力推进了青年学生党史国史教育这一项基础工程。立于厦大“新百年”的潮头，革命史馆将继续集聚历史能量，发挥教育效用，成为广大青年学生补足“精神之钙”、点亮“信仰之灯”、铸牢“信念之魂”的红色“聚宝盆”。
+# ''',"暂无","暂无")

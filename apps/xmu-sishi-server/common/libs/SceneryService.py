@@ -59,7 +59,7 @@ class SceneryService:
 
     @staticmethod
     def create(id, label_list, name, cloud, score, open_time, must_know, intro_text, intro_audio, intro_video,signable):
-        print(4, id, label_list, name, cloud, score, open_time, must_know, intro_text, intro_audio, intro_video,signable)
+       # print(4, id, label_list, name, cloud, score, open_time, must_know, intro_text, intro_audio, intro_video,signable)
         try:
             db = get_db()
             #label_list = eval(label_list)

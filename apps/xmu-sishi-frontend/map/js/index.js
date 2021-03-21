@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // }
         axios({
             method: 'POST',
-            url: 'https://sishi.xmu.edu.cn/api/scenery/delete_scenery_node',
+            url: 'https://sishi.xmu.edu.cn/delete_scenery_node',
             data: {
                 id: id
             }
@@ -197,7 +197,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // console.log(name_t.value, xmu_t.value, cloud_t.value, score_t.value, open_time_t.value, must_know_t.value, intro_text_t.value, intro_audio_t.value, intro_video_t.value);
             axios({
                 method: 'POST',
-                url: 'https://sishi.xmu.edu.cn/api/scenery/post_scenery_info',
+                url: 'https://sishi.xmu.edu.cn/post_scenery_info',
                 data: {
                     id: id_t.value,
                     label_list: JSON.stringify(xmu_t.value.split(/,/)),

@@ -93,7 +93,7 @@ def post_scenery_info():
     intro_video = getParserValue(intro_video)
     signable = getParserValue(signable)
 
-    print("3", label_list, name, cloud, score, open_time, must_know, intro_text, intro_audio, intro_video)
+    #print("3", label_list, name, cloud, score, open_time, must_know, intro_text, intro_audio, intro_video)
     sign = SceneryService.create(id, label_list, name, cloud, score, open_time, must_know, intro_text, intro_audio, intro_video,signable)
     if not sign:
         resp["code"] = -1
@@ -107,13 +107,15 @@ def delete_scenery_node():  # 通过id来删除
     req = request.values
     print(req)
     del_scenery_id = req["id"] if "id" in req else None
-    SceneryService.delete_scenery_node(del_scenery_id)
-    return jsonify(resp)
-
+    
     if not del_scenery_id:
         resp["code"] = -1
         resp["msg"] = "请正确提供景点的id值"
         return jsonify(resp)
+    SceneryService.delete_scenery_node(del_scenery_id)
+    return jsonify(resp)
+
+    
 @route_scenery.route("/display")
 def display_sceneries():
     resp_data = {}
