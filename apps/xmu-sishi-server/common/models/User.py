@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 class User():
-    def __init__(self,name, userid,tel,labels):
+    def __init__(self,user):#user是个列表
 
         self.name= user['name']
         self.userid= user['userid'] #随机数生成

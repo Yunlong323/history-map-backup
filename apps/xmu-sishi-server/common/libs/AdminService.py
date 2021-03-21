@@ -8,6 +8,7 @@ import random
 import string
 
 
+
 class AdminService:
 
     @staticmethod

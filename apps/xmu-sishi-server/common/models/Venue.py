@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 class Venue():
-    def __init__(self, venue):
+    def __init__(self, venue): #venue是个对象
         self.id= venue['id']
         self.name= venue['name']
         self.cloud= venue['cloud']

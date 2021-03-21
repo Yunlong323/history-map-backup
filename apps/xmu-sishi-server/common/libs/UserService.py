@@ -15,23 +15,25 @@ class UserService:
     def create_user_node(name,userid,tel,labels):
         db = get_db()
         property_dict = {"name":name,"userid":userid,"tel":tel,"labels":labels}
-        expression = "CREATE(user"+":"+label_string+'''
+        expression = "CREATE(user"+":"+"user"+'''
             {
                 name:$name,
-                userid:$id,
+                userid:$userid,
                 tel:$tel,
                 labels:$labels
             }
-        '''+")"  
+        '''+")"
         try:
             results = db.run(expression,property_dict)
             return 1 #1代表成功
         except Exception as e:
             return None
-    
+
+    @staticmethod
     def search_user_node(tel):
         db = get_db()
-        expression = "match(node:user ,{tel:$tel}) return node "
+        tel = str(tel)
+        expression = "match(node:user)where node.tel=\'"+tel+"\' return node "
         result = db.run(expression)
         userList = []
         for record in result:
