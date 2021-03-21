@@ -3,7 +3,7 @@
 
 class Venue():
     def __init__(self, venue):
-        # self.id= venue['id']
+        self.id= venue['id']
         self.name= venue['name']
         self.cloud= venue['cloud']
         self.score= venue['score']
@@ -12,3 +12,4 @@ class Venue():
         self.intro_text= venue['intro_text']
         self.intro_audio= venue['intro_audio']
         self.intro_video= venue['intro_video']
+        self.signable = venue["signable"] #1 可以打卡 0   不可以打卡

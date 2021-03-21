@@ -11,7 +11,35 @@ from common.models.User import User
 
 class UserService:
    
-
+    @staticmethod
+    def create_user_node(name,userid,tel,labels):
+        db = get_db()
+        property_dict = {"name":name,"userid":userid,"tel":tel,"labels":labels}
+        expression = "CREATE(user"+":"+label_string+'''
+            {
+                name:$name,
+                userid:$id,
+                tel:$tel,
+                labels:$labels
+            }
+        '''+")"  
+        try:
+            results = db.run(expression,property_dict)
+            return 1 #1代表成功
+        except Exception as e:
+            return None
+    
+    def search_user_node(tel):
+        db = get_db()
+        expression = "match(node:user ,{tel:$tel}) return node "
+        result = db.run(expression)
+        userList = []
+        for record in result:
+            temp = User(record['node'])
+            if temp: #如果查找到了，直接返回python化后的neo4j结点
+                return temp
+            else:
+                return None
 
     @staticmethod
     def updateTest2(test):
