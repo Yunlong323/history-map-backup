@@ -5,7 +5,7 @@ from flask_script import Manager
 import os
 from common.libs.UrlManager import UrlManager
 from neo4j.v1 import GraphDatabase, basic_auth
-# from flask_cors import CORS
+from flask_cors import CORS
 
 
 
@@ -19,7 +19,10 @@ class Application(Flask):
 
 
 app = Application(__name__, template_folder=os.getcwd() + "/webs/templates", root_path=os.getcwd())
-# CORS(app)
+
+# 加上这一条就实现跨域了
+CORS(app, supports_credentials=True)
+
 driver = GraphDatabase.driver(app.config.get("NEO4J")["address"],auth=basic_auth(app.config.get("NEO4J")["username"], app.config.get("NEO4J")["password"]))
 
 

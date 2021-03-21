@@ -9,17 +9,17 @@ app.all('/submit', (request, response) => {
     response.setHeader('Access-Control-Allow-Headers', '*');
 
     const data = {
-        name: '厦门鼓浪屿',
-        cloud: 18,
-        score: 99,
-        open_time: '2021-02-23 16:00:00',
-        must_know: 'abababaab',
-        introduction_text: '这是一个美丽的地方',
-        introduction_audio: 'https://www.baidu.com',
-        introduction_vidio: 'https://www.taobao.com',
-        msg: '1'
-    }
-    // 设置响应
+            name: '厦门鼓浪屿',
+            cloud: 18,
+            score: 99,
+            open_time: '2021-02-23 16:00:00',
+            must_know: 'abababaab',
+            introduction_text: '这是一个美丽的地方',
+            introduction_audio: 'https://www.baidu.com',
+            introduction_video: 'https://www.taobao.com',
+            msg: '1'
+        }
+        // 设置响应
     response.send(JSON.stringify(data));
 })
 

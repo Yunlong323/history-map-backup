@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import MySQLdb
+# import MySQLdb
 from flask import Blueprint
 from flask import request, jsonify, g
 from common.libs.Helper import getFormatDate
@@ -221,8 +221,8 @@ def login():
 def checkExist(userno,username):
 
     # 打开数据库连接
-    _db = MySQLdb.connect(app.config.get("MYSQL")["address"], app.config.get("MYSQL")["username"], app.config.get("MYSQL")["password"], app.config.get("MYSQL")["schema"], charset='utf8' )
-
+    # _db = MySQLdb.connect(app.config.get("MYSQL")["address"], app.config.get("MYSQL")["username"], app.config.get("MYSQL")["password"], app.config.get("MYSQL")["schema"], charset='utf8' )
+    _db = ""
     # 使用cursor()方法获取操作游标 
     cursor = _db.cursor()
     

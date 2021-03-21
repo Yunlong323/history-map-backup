@@ -54,11 +54,19 @@ APP = {
     "domain": "https://127.0.0.1/"  
 }
 
+# 在线
 NEO4J = {
-    "address": "bolt://127.0.0.1:7687",
+    "address": "bolt://219.229.80.233/7687",
     "username": "neo4j",
     "password": "Mars@2018"
 }
+
+# 本地
+# NEO4J = {
+#     "address": "bolt://127.0.0.1",
+#     "username": "neo4j",
+#     "password": "123456"
+# }
 
 #微信appId更新
 WECHAT={

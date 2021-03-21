@@ -43,7 +43,7 @@ class AdminService:
         expression = "CREATE(place" + ":" + label_string + '''{name:$name,cloud:$cloud,score:$score,open_time:$open_time,must_know:$must_know,intro_text:$intro_text,intro_audio:$intro_audio,intro_video:$intro_video}''' + ")"
         try:
             results = db.run(expression, property_dict)
-            return 1 # 1代表成功
+            return 1  # 1代表成功
 
         except Exception as e:
             print(e)

@@ -15,16 +15,20 @@ from webs.interceptors.Errorinterceptor import *
 from webs.controllers.wechat import route_wechat
 from webs.controllers.Admin import route_admin
 from webs.controllers.User import route_user
-from webs.controllers.Venue import route_venue
+from webs.controllers.Venue import route_venue 
 from webs.controllers.index import route_index
 from webs.controllers.Track import route_track
 from webs.controllers.Trace import route_trace
 from webs.controllers.Business import route_business
+from webs.controllers.Scenery import route_scenery
 # from webs.controllers.API import route_api
 
-app.register_blueprint(route_wechat, url_prefix="/api/wechat")
+app.register_blueprint(route_wechat, url_prefix="/wechat")
 app.register_blueprint(route_admin, url_prefix="/api/admin")
-app.register_blueprint(route_user, url_prefix="/api/user")
+app.register_blueprint(route_scenery, url_prefix="/api/scenery")
+
+
+app.register_blueprint(route_user, url_prefix="/user")
 app.register_blueprint(route_venue, url_prefix="/venue")
 app.register_blueprint(route_index, url_prefix="/")
 app.register_blueprint(route_track, url_prefix="/track")
