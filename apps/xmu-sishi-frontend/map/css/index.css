@@ -144,17 +144,20 @@
     .add .content {
         height: 87%;
         width: 100%;
-        padding: 10%;
-        padding-left: 5%;
     }
 
     .add .content ul {
-        height: 95%;
+        height: 100%;
     }
 
     .add .content li {
-        height: 10%;
+        height: 9%;
+        padding-top: 10px;
         line-height: 10%;
+    }
+    .add .content li:last-child{
+        margin-top: -11px;
+        padding-top: 0;
     }
 
     .add .content li span,
@@ -167,7 +170,6 @@
     .add .content li .write {
         position: relative;
         margin-left: 20px;
-        float: right;
     }
 
     .add .content li .write i {
@@ -241,14 +243,14 @@
     }
 
     .content .sub {
-        height: 40px;
+        height: 37px;
         width: 100px;
         background-color: #1aad19;
         border-radius: 4px;
         color: #fff;
-        line-height: 40px;
+        line-height: 37px;
         text-align: center;
-        margin: -10px auto;
+        margin: -43px auto;
         cursor: pointer;
     }
 
@@ -260,7 +262,7 @@
         height: calc(92% - 40px);
         width: 100%;
         border-bottom-right-radius: 15px;
-        padding: 30px 30px;
+        padding: 10px;
     }
 
     .show article .table {
@@ -300,21 +302,22 @@
         float: left;
         font-size: 15px;
         height: 64px;
-        width: 9%;
+        width: 8.33%;
         text-align: center;
         word-wrap: break-word;
         overflow-y: auto;
     }
 
     .show article .table ul li:last-child {
-        width: 10%;
+        width: 8.34%;
         line-height: 64px;
     }
 
-    .show article .table ul li:nth-child(7),
     .show article .table ul li:nth-child(8),
     .show article .table ul li:nth-child(9),
-    .show article .table ul li:nth-child(10) {
+    .show article .table ul li:nth-child(10),
+    .show article .table ul li:nth-child(11)
+     {
         font-size: 13px;
     }
 
@@ -332,7 +335,7 @@
 
     .show article .table ul[index=first] {
         position:fixed;
-        width:973px;
+        width:1013px;
         background-color: #f6f8f9;
         height: 64px;
         line-height: 56px;
