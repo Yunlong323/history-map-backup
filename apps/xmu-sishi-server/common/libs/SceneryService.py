@@ -58,8 +58,8 @@ class SceneryService:
 
 
     @staticmethod
-    def create(id, label_list, name, cloud, score, open_time, must_know, intro_text, intro_audio, intro_video):
-        print(4, id, label_list, name, cloud, score, open_time, must_know, intro_text, intro_audio, intro_video)
+    def create(id, label_list, name, cloud, score, open_time, must_know, intro_text, intro_audio, intro_video,signable):
+        print(4, id, label_list, name, cloud, score, open_time, must_know, intro_text, intro_audio, intro_video,signable)
         try:
             db = get_db()
             label_list = eval(label_list)
@@ -88,12 +88,13 @@ class SceneryService:
                 must_know:$must_know,
                 intro_text:$intro_text,
                 intro_audio:$intro_audio,
-                intro_video:$intro_video
+                intro_video:$intro_video,
+                signable:$signable
             }
             '''+")"
             property_dict = {"id" :id ,"name" :name ,"cloud" :cloud ,"score" :score ,"open_time" :open_time
                              ,"must_know" :must_know ,"intro_text" :intro_text ,"intro_audio" :intro_audio
-                             ,"intro_video" :intro_video}
+                             ,"intro_video" :intro_video,"signable":signable}
 
             results = db.run(expression, property_dict)
             return 1  # 1代表成功

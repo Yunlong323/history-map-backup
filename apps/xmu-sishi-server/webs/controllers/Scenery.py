@@ -26,8 +26,9 @@ def post_scenery_info():
     intro_text = req["intro_text"] if "intro_text" in req else None
     intro_audio = req["intro_audio"] if "intro_audio" in req else None
     intro_video = req["intro_video"] if "intro_video" in req else None
+    signable = req["signable"] if "signable" in req else None
     print("1", req)
-    print("2", label_list, name, cloud, score, open_time, must_know, intro_text, intro_audio, intro_video)
+    print("2", label_list, name, cloud, score, open_time, must_know, intro_text, intro_audio, intro_video,signable)
     #先获取属性，再判空
     if not label_list:
         resp["code"] = -1
@@ -65,6 +66,10 @@ def post_scenery_info():
         resp["code"] = -1
         resp["msg"] = "请输入景点视频介绍信息"
         return jsonify(resp)
+    if not signable:
+        resp["code"] = -1
+        resp["msg"] = "请确认是否能打卡"
+        return jsonify(resp)
     # if not file:
     #     resp["code"] = -1
     #     resp["msg"] = "请选择文件"
@@ -86,9 +91,10 @@ def post_scenery_info():
     intro_text = getParserValue(intro_text)
     intro_audio = getParserValue(intro_audio)
     intro_video = getParserValue(intro_video)
+    signable = getParserValue(signable)
 
     print("3", label_list, name, cloud, score, open_time, must_know, intro_text, intro_audio, intro_video)
-    sign = SceneryService.create(id, label_list, name, cloud, score, open_time, must_know, intro_text, intro_audio, intro_video)
+    sign = SceneryService.create(id, label_list, name, cloud, score, open_time, must_know, intro_text, intro_audio, intro_video,signable)
     if not sign:
         resp["code"] = -1
         resp["msg"] = "服务器创建失败"
