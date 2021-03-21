@@ -17,7 +17,7 @@ class AdminService:
         venue_list = []
         for record in results:
             tmp = Venue(record["place"])#构造python景点对象
-            venue_list.append(tmp)
+            # venue_list.append(tmp)
         return tmp
 
     @staticmethod

@@ -14,27 +14,40 @@ class UserService:
 
 
     @staticmethod
-    def updateTest2(test):
+    def create_user_node(name,userid,tel,labels):
         db = get_db()
-
-        results = db.run("MATCH (user:USER) "
-                 "SET user.test=$test,user.time='20202020202020202020'",{"test": test}
-        )
-
-
-    @staticmethod
-    def updateTest():
+        property_dict = {"name":name,"userid":userid,"tel":tel,"labels":labels}
+        expression = "CREATE(user"+":"+label_string+'''
+            {
+                id:$id,
+                name:$name,
+                cloud:$cloud,
+                score:$score,
+                open_time:$open_time,
+                must_know:$must_know,
+                intro_text:$intro_text,
+                intro_audio:$intro_audio,
+                intro_video:$intro_video
+            }
+        '''+")"  
+        try:
+            results = db.run(expression,property_dict)
+            return 1 #1代表成功
+        except Exception as e:
+            return None
+    
+    def search_user_node(tel):
         db = get_db()
+        expression = "match(node:user ,{tel:$tel}) return node "
+        result = db.run(expression)
+        userList = []
+        for record in result:
+            temp = User(record['node'])
+            if temp: #如果查找到了，直接返回python化后的neo4j结点
+                return temp
+        
 
-        results = db.run("MATCH (user:USER) "
-                 "SET user.test='测试',user.time='20202020202020202020'"
-        )
-        # db = get_driver()
-        # with db.session() as session:
-        #     results = session.run("MATCH (user:USER) "
-        #          "SET user.test='测试',user.time='20202020202020202020'"
-        #     )
-
+        
 
 
 
@@ -64,6 +77,30 @@ class UserService:
             tmp = User(record['node'])
             userList.append(tmp)
         return userList
+
+           @staticmethod
+    def updateTest2(test):
+        db = get_db()
+
+        results = db.run("MATCH (user:USER) "
+                 "SET user.test=$test,user.time='20202020202020202020'",{"test": test}
+        )
+
+
+    @staticmethod
+    def updateTest():
+        db = get_db()
+
+        results = db.run("MATCH (user:USER) "
+                 "SET user.test='测试',user.time='20202020202020202020'"
+        )
+        # db = get_driver()
+        # with db.session() as session:
+        #     results = session.run("MATCH (user:USER) "
+        #          "SET user.test='测试',user.time='20202020202020202020'"
+        #     )
+
+
         
     @staticmethod
     def geneUserid(userno, salt):
