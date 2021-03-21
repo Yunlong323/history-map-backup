@@ -45,6 +45,8 @@ class UserService:
             temp = User(record['node'])
             if temp: #如果查找到了，直接返回python化后的neo4j结点
                 return temp
+            else:
+                return None
         
 
         
