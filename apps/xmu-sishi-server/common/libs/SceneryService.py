@@ -63,7 +63,7 @@ class SceneryService:
         try:
             db = get_db()
             #label_list = eval(label_list)
-             label_string = ":".join(label_list)
+            label_string = ":".join(label_list)
             # expression = "CREATE(place"+":"+label_string+'''
             # {
             #     id:$id,
